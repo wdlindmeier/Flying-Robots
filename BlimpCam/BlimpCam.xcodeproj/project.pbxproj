@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A9E2257A16EE376C002DC1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257916EE376C002DC1F3 /* UIKit.framework */; };
+		A9E2257C16EE376C002DC1F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257B16EE376C002DC1F3 /* Foundation.framework */; };
+		A9E2257E16EE376C002DC1F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */; };
+		A9E2258416EE376C002DC1F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9E2258216EE376C002DC1F3 /* InfoPlist.strings */; };
+		A9E2258616EE376C002DC1F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2258516EE376C002DC1F3 /* main.m */; };
+		A9E2258A16EE376C002DC1F3 /* WDLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2258916EE376C002DC1F3 /* WDLAppDelegate.m */; };
+		A9E2258C16EE376C002DC1F3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2258B16EE376C002DC1F3 /* Default.png */; };
+		A9E2258E16EE376C002DC1F3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2258D16EE376C002DC1F3 /* Default@2x.png */; };
+		A9E2259016EE376C002DC1F3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2258F16EE376C002DC1F3 /* Default-568h@2x.png */; };
+		A9E2259316EE376C002DC1F3 /* WDLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2259216EE376C002DC1F3 /* WDLViewController.m */; };
+		A9E2259616EE376C002DC1F3 /* WDLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9E2259416EE376C002DC1F3 /* WDLViewController.xib */; };
+		A9E225A116EE3ADB002DC1F3 /* BZFoursquare.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2259E16EE3ADB002DC1F3 /* BZFoursquare.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A9E225A216EE3ADB002DC1F3 /* BZFoursquareRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225A016EE3ADB002DC1F3 /* BZFoursquareRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A9E225A416EE3B59002DC1F3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E225A316EE3B59002DC1F3 /* MobileCoreServices.framework */; };
+		A9E225A716EE3C59002DC1F3 /* FSQMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225A616EE3C58002DC1F3 /* FSQMasterViewController.m */; };
+		A9E225AA16EE3CD1002DC1F3 /* FSQJSONObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225A916EE3CD0002DC1F3 /* FSQJSONObjectViewController.m */; };
+		A9E225AE16EE495E002DC1F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E225AD16EE495E002DC1F3 /* AVFoundation.framework */; };
+		A9E225B116EE4AC1002DC1F3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E225AF16EE4ABF002DC1F3 /* Icon.png */; };
+		A9E225B216EE4AC1002DC1F3 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E225B016EE4ABF002DC1F3 /* Icon@2x.png */; };
+		A9E225BC16EE4C6E002DC1F3 /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225B516EE4C6E002DC1F3 /* AVCamCaptureManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A9E225BD16EE4C6E002DC1F3 /* AVCamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225B716EE4C6E002DC1F3 /* AVCamRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A9E225BE16EE4C6E002DC1F3 /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225B916EE4C6E002DC1F3 /* AVCamUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A9E225BF16EE4C6E002DC1F3 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E225BB16EE4C6E002DC1F3 /* AVCamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A9E225C116EE4E83002DC1F3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E225C016EE4E82002DC1F3 /* CoreMedia.framework */; };
+		A9E225C316EE4E88002DC1F3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E225C216EE4E88002DC1F3 /* CoreVideo.framework */; };
+		A9E225C516EE4E8E002DC1F3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E225C416EE4E8E002DC1F3 /* AssetsLibrary.framework */; };
+		A9E225C716EE4E93002DC1F3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E225C616EE4E92002DC1F3 /* ImageIO.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A9E2257616EE376C002DC1F3 /* BlimpCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlimpCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9E2257916EE376C002DC1F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A9E2257B16EE376C002DC1F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A9E2258116EE376C002DC1F3 /* BlimpCam-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlimpCam-Info.plist"; sourceTree = "<group>"; };
+		A9E2258316EE376C002DC1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A9E2258516EE376C002DC1F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A9E2258716EE376C002DC1F3 /* BlimpCam-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlimpCam-Prefix.pch"; sourceTree = "<group>"; };
+		A9E2258816EE376C002DC1F3 /* WDLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDLAppDelegate.h; sourceTree = "<group>"; };
+		A9E2258916EE376C002DC1F3 /* WDLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDLAppDelegate.m; sourceTree = "<group>"; };
+		A9E2258B16EE376C002DC1F3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A9E2258D16EE376C002DC1F3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A9E2258F16EE376C002DC1F3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A9E2259116EE376C002DC1F3 /* WDLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDLViewController.h; sourceTree = "<group>"; };
+		A9E2259216EE376C002DC1F3 /* WDLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDLViewController.m; sourceTree = "<group>"; };
+		A9E2259516EE376C002DC1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WDLViewController.xib; sourceTree = "<group>"; };
+		A9E2259D16EE3ADB002DC1F3 /* BZFoursquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZFoursquare.h; sourceTree = "<group>"; };
+		A9E2259E16EE3ADB002DC1F3 /* BZFoursquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZFoursquare.m; sourceTree = "<group>"; };
+		A9E2259F16EE3ADB002DC1F3 /* BZFoursquareRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZFoursquareRequest.h; sourceTree = "<group>"; };
+		A9E225A016EE3ADB002DC1F3 /* BZFoursquareRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZFoursquareRequest.m; sourceTree = "<group>"; };
+		A9E225A316EE3B59002DC1F3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A9E225A516EE3C58002DC1F3 /* FSQMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQMasterViewController.h; sourceTree = "<group>"; };
+		A9E225A616EE3C58002DC1F3 /* FSQMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQMasterViewController.m; sourceTree = "<group>"; };
+		A9E225A816EE3CD0002DC1F3 /* FSQJSONObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQJSONObjectViewController.h; sourceTree = "<group>"; };
+		A9E225A916EE3CD0002DC1F3 /* FSQJSONObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQJSONObjectViewController.m; sourceTree = "<group>"; };
+		A9E225AD16EE495E002DC1F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A9E225AF16EE4ABF002DC1F3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		A9E225B016EE4ABF002DC1F3 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		A9E225B416EE4C6E002DC1F3 /* AVCamCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCaptureManager.h; sourceTree = "<group>"; };
+		A9E225B516EE4C6E002DC1F3 /* AVCamCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCaptureManager.m; sourceTree = "<group>"; };
+		A9E225B616EE4C6E002DC1F3 /* AVCamRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamRecorder.h; sourceTree = "<group>"; };
+		A9E225B716EE4C6E002DC1F3 /* AVCamRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamRecorder.m; sourceTree = "<group>"; };
+		A9E225B816EE4C6E002DC1F3 /* AVCamUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamUtilities.h; sourceTree = "<group>"; };
+		A9E225B916EE4C6E002DC1F3 /* AVCamUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamUtilities.m; sourceTree = "<group>"; };
+		A9E225BA16EE4C6E002DC1F3 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
+		A9E225BB16EE4C6E002DC1F3 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		A9E225C016EE4E82002DC1F3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A9E225C216EE4E88002DC1F3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A9E225C416EE4E8E002DC1F3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		A9E225C616EE4E92002DC1F3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A9E225C816EE511F002DC1F3 /* FSQAppCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQAppCredentials.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9E2257316EE376C002DC1F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E225C716EE4E93002DC1F3 /* ImageIO.framework in Frameworks */,
+				A9E225C516EE4E8E002DC1F3 /* AssetsLibrary.framework in Frameworks */,
+				A9E225C316EE4E88002DC1F3 /* CoreVideo.framework in Frameworks */,
+				A9E225C116EE4E83002DC1F3 /* CoreMedia.framework in Frameworks */,
+				A9E225AE16EE495E002DC1F3 /* AVFoundation.framework in Frameworks */,
+				A9E225A416EE3B59002DC1F3 /* MobileCoreServices.framework in Frameworks */,
+				A9E2257A16EE376C002DC1F3 /* UIKit.framework in Frameworks */,
+				A9E2257C16EE376C002DC1F3 /* Foundation.framework in Frameworks */,
+				A9E2257E16EE376C002DC1F3 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9E2256D16EE376C002DC1F3 = {
+			isa = PBXGroup;
+			children = (
+				A9E225B316EE4C6D002DC1F3 /* AVCam */,
+				A9E2259C16EE3ADB002DC1F3 /* BZFoursquare */,
+				A9E2257F16EE376C002DC1F3 /* BlimpCam */,
+				A9E2257816EE376C002DC1F3 /* Frameworks */,
+				A9E2257716EE376C002DC1F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9E2257716EE376C002DC1F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2257616EE376C002DC1F3 /* BlimpCam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9E2257816EE376C002DC1F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9E225C616EE4E92002DC1F3 /* ImageIO.framework */,
+				A9E225C416EE4E8E002DC1F3 /* AssetsLibrary.framework */,
+				A9E225C216EE4E88002DC1F3 /* CoreVideo.framework */,
+				A9E225C016EE4E82002DC1F3 /* CoreMedia.framework */,
+				A9E225AD16EE495E002DC1F3 /* AVFoundation.framework */,
+				A9E225A316EE3B59002DC1F3 /* MobileCoreServices.framework */,
+				A9E2257916EE376C002DC1F3 /* UIKit.framework */,
+				A9E2257B16EE376C002DC1F3 /* Foundation.framework */,
+				A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9E2257F16EE376C002DC1F3 /* BlimpCam */ = {
+			isa = PBXGroup;
+			children = (
+				A9E225C816EE511F002DC1F3 /* FSQAppCredentials.h */,
+				A9E225AB16EE3CD4002DC1F3 /* FourSquare */,
+				A9E225AF16EE4ABF002DC1F3 /* Icon.png */,
+				A9E225B016EE4ABF002DC1F3 /* Icon@2x.png */,
+				A9E2258016EE376C002DC1F3 /* Supporting Files */,
+				A9E2258816EE376C002DC1F3 /* WDLAppDelegate.h */,
+				A9E2258916EE376C002DC1F3 /* WDLAppDelegate.m */,
+				A9E2259116EE376C002DC1F3 /* WDLViewController.h */,
+				A9E2259216EE376C002DC1F3 /* WDLViewController.m */,
+				A9E2259416EE376C002DC1F3 /* WDLViewController.xib */,
+			);
+			path = BlimpCam;
+			sourceTree = "<group>";
+		};
+		A9E2258016EE376C002DC1F3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2258116EE376C002DC1F3 /* BlimpCam-Info.plist */,
+				A9E2258216EE376C002DC1F3 /* InfoPlist.strings */,
+				A9E2258516EE376C002DC1F3 /* main.m */,
+				A9E2258716EE376C002DC1F3 /* BlimpCam-Prefix.pch */,
+				A9E2258B16EE376C002DC1F3 /* Default.png */,
+				A9E2258D16EE376C002DC1F3 /* Default@2x.png */,
+				A9E2258F16EE376C002DC1F3 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9E2259C16EE3ADB002DC1F3 /* BZFoursquare */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2259D16EE3ADB002DC1F3 /* BZFoursquare.h */,
+				A9E2259E16EE3ADB002DC1F3 /* BZFoursquare.m */,
+				A9E2259F16EE3ADB002DC1F3 /* BZFoursquareRequest.h */,
+				A9E225A016EE3ADB002DC1F3 /* BZFoursquareRequest.m */,
+			);
+			name = BZFoursquare;
+			path = "foursquare-ios-api-master/BZFoursquare";
+			sourceTree = "<group>";
+		};
+		A9E225AB16EE3CD4002DC1F3 /* FourSquare */ = {
+			isa = PBXGroup;
+			children = (
+				A9E225A816EE3CD0002DC1F3 /* FSQJSONObjectViewController.h */,
+				A9E225A916EE3CD0002DC1F3 /* FSQJSONObjectViewController.m */,
+				A9E225A516EE3C58002DC1F3 /* FSQMasterViewController.h */,
+				A9E225A616EE3C58002DC1F3 /* FSQMasterViewController.m */,
+			);
+			name = FourSquare;
+			sourceTree = "<group>";
+		};
+		A9E225B316EE4C6D002DC1F3 /* AVCam */ = {
+			isa = PBXGroup;
+			children = (
+				A9E225B416EE4C6E002DC1F3 /* AVCamCaptureManager.h */,
+				A9E225B516EE4C6E002DC1F3 /* AVCamCaptureManager.m */,
+				A9E225B616EE4C6E002DC1F3 /* AVCamRecorder.h */,
+				A9E225B716EE4C6E002DC1F3 /* AVCamRecorder.m */,
+				A9E225B816EE4C6E002DC1F3 /* AVCamUtilities.h */,
+				A9E225B916EE4C6E002DC1F3 /* AVCamUtilities.m */,
+				A9E225BA16EE4C6E002DC1F3 /* AVCamViewController.h */,
+				A9E225BB16EE4C6E002DC1F3 /* AVCamViewController.m */,
+			);
+			name = AVCam;
+			path = AVCam/Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9E2257516EE376C002DC1F3 /* BlimpCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9E2259916EE376C002DC1F3 /* Build configuration list for PBXNativeTarget "BlimpCam" */;
+			buildPhases = (
+				A9E2257216EE376C002DC1F3 /* Sources */,
+				A9E2257316EE376C002DC1F3 /* Frameworks */,
+				A9E2257416EE376C002DC1F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlimpCam;
+			productName = BlimpCam;
+			productReference = A9E2257616EE376C002DC1F3 /* BlimpCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9E2256E16EE376C002DC1F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WDL;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "William Lindmeier";
+			};
+			buildConfigurationList = A9E2257116EE376C002DC1F3 /* Build configuration list for PBXProject "BlimpCam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A9E2256D16EE376C002DC1F3;
+			productRefGroup = A9E2257716EE376C002DC1F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9E2257516EE376C002DC1F3 /* BlimpCam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9E2257416EE376C002DC1F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E2258416EE376C002DC1F3 /* InfoPlist.strings in Resources */,
+				A9E2258C16EE376C002DC1F3 /* Default.png in Resources */,
+				A9E2258E16EE376C002DC1F3 /* Default@2x.png in Resources */,
+				A9E2259016EE376C002DC1F3 /* Default-568h@2x.png in Resources */,
+				A9E2259616EE376C002DC1F3 /* WDLViewController.xib in Resources */,
+				A9E225B116EE4AC1002DC1F3 /* Icon.png in Resources */,
+				A9E225B216EE4AC1002DC1F3 /* Icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9E2257216EE376C002DC1F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9E2258616EE376C002DC1F3 /* main.m in Sources */,
+				A9E2258A16EE376C002DC1F3 /* WDLAppDelegate.m in Sources */,
+				A9E2259316EE376C002DC1F3 /* WDLViewController.m in Sources */,
+				A9E225A116EE3ADB002DC1F3 /* BZFoursquare.m in Sources */,
+				A9E225A216EE3ADB002DC1F3 /* BZFoursquareRequest.m in Sources */,
+				A9E225A716EE3C59002DC1F3 /* FSQMasterViewController.m in Sources */,
+				A9E225AA16EE3CD1002DC1F3 /* FSQJSONObjectViewController.m in Sources */,
+				A9E225BC16EE4C6E002DC1F3 /* AVCamCaptureManager.m in Sources */,
+				A9E225BD16EE4C6E002DC1F3 /* AVCamRecorder.m in Sources */,
+				A9E225BE16EE4C6E002DC1F3 /* AVCamUtilities.m in Sources */,
+				A9E225BF16EE4C6E002DC1F3 /* AVCamViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A9E2258216EE376C002DC1F3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9E2258316EE376C002DC1F3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A9E2259416EE376C002DC1F3 /* WDLViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9E2259516EE376C002DC1F3 /* en */,
+			);
+			name = WDLViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A9E2259716EE376C002DC1F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A9E2259816EE376C002DC1F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9E2259A16EE376C002DC1F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FOURSQUARE_CALLBACK_URL = "foodhawk://foursquare";
+				FOURSQUARE_CLIENT_ID = RWQRBYG3KYQMI04UNBFEX4OQQWQTNQ2RGOK3DM01FO3IMM0A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BlimpCam/BlimpCam-Prefix.pch";
+				INFOPLIST_FILE = "BlimpCam/BlimpCam-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A9E2259B16EE376C002DC1F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FOURSQUARE_CALLBACK_URL = "foodhawk://foursquare";
+				FOURSQUARE_CLIENT_ID = RWQRBYG3KYQMI04UNBFEX4OQQWQTNQ2RGOK3DM01FO3IMM0A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BlimpCam/BlimpCam-Prefix.pch";
+				INFOPLIST_FILE = "BlimpCam/BlimpCam-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9E2257116EE376C002DC1F3 /* Build configuration list for PBXProject "BlimpCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9E2259716EE376C002DC1F3 /* Debug */,
+				A9E2259816EE376C002DC1F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9E2259916EE376C002DC1F3 /* Build configuration list for PBXNativeTarget "BlimpCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9E2259A16EE376C002DC1F3 /* Debug */,
+				A9E2259B16EE376C002DC1F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9E2256E16EE376C002DC1F3 /* Project object */;
+}
