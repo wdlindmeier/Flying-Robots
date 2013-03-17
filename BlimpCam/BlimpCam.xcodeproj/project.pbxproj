@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A93C87C816F6107C008D8886 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C87C716F6107C008D8886 /* CoreLocation.framework */; };
+		A93C87CB16F610A9008D8886 /* WDLLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87CA16F610A9008D8886 /* WDLLocationManager.m */; };
+		A93C87CE16F61556008D8886 /* WDLHeadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87CD16F61556008D8886 /* WDLHeadingView.m */; };
+		A93C87D016F61A2C008D8886 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C87CF16F61A2C008D8886 /* MapKit.framework */; };
+		A93C87D216F61A32008D8886 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C87D116F61A32008D8886 /* QuartzCore.framework */; };
+		A93C87D516F61B5E008D8886 /* CGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87D416F61B5E008D8886 /* CGGeometry.m */; };
 		A9E2257A16EE376C002DC1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257916EE376C002DC1F3 /* UIKit.framework */; };
 		A9E2257C16EE376C002DC1F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257B16EE376C002DC1F3 /* Foundation.framework */; };
 		A9E2257E16EE376C002DC1F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */; };
@@ -37,6 +43,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A93C87C716F6107C008D8886 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A93C87C916F610A9008D8886 /* WDLLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLLocationManager.h; sourceTree = "<group>"; };
+		A93C87CA16F610A9008D8886 /* WDLLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLLocationManager.m; sourceTree = "<group>"; };
+		A93C87CC16F61556008D8886 /* WDLHeadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLHeadingView.h; sourceTree = "<group>"; };
+		A93C87CD16F61556008D8886 /* WDLHeadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLHeadingView.m; sourceTree = "<group>"; };
+		A93C87CF16F61A2C008D8886 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A93C87D116F61A32008D8886 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A93C87D316F61B5E008D8886 /* CGGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGeometry.h; sourceTree = "<group>"; };
+		A93C87D416F61B5E008D8886 /* CGGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGeometry.m; sourceTree = "<group>"; };
 		A9E2257616EE376C002DC1F3 /* BlimpCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlimpCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E2257916EE376C002DC1F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9E2257B16EE376C002DC1F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93C87D216F61A32008D8886 /* QuartzCore.framework in Frameworks */,
+				A93C87D016F61A2C008D8886 /* MapKit.framework in Frameworks */,
+				A93C87C816F6107C008D8886 /* CoreLocation.framework in Frameworks */,
 				A9E225C716EE4E93002DC1F3 /* ImageIO.framework in Frameworks */,
 				A9E225C516EE4E8E002DC1F3 /* AssetsLibrary.framework in Frameworks */,
 				A9E225C316EE4E88002DC1F3 /* CoreVideo.framework in Frameworks */,
@@ -122,6 +140,9 @@
 		A9E2257816EE376C002DC1F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A93C87D116F61A32008D8886 /* QuartzCore.framework */,
+				A93C87CF16F61A2C008D8886 /* MapKit.framework */,
+				A93C87C716F6107C008D8886 /* CoreLocation.framework */,
 				A9E225C616EE4E92002DC1F3 /* ImageIO.framework */,
 				A9E225C416EE4E8E002DC1F3 /* AssetsLibrary.framework */,
 				A9E225C216EE4E88002DC1F3 /* CoreVideo.framework */,
@@ -138,16 +159,22 @@
 		A9E2257F16EE376C002DC1F3 /* BlimpCam */ = {
 			isa = PBXGroup;
 			children = (
-				A9E225C816EE511F002DC1F3 /* FSQAppCredentials.h */,
+				A93C87D316F61B5E008D8886 /* CGGeometry.h */,
+				A93C87D416F61B5E008D8886 /* CGGeometry.m */,
 				A9E225AB16EE3CD4002DC1F3 /* FourSquare */,
+				A9E225C816EE511F002DC1F3 /* FSQAppCredentials.h */,
 				A9E225AF16EE4ABF002DC1F3 /* Icon.png */,
 				A9E225B016EE4ABF002DC1F3 /* Icon@2x.png */,
 				A9E2258016EE376C002DC1F3 /* Supporting Files */,
 				A9E2258816EE376C002DC1F3 /* WDLAppDelegate.h */,
 				A9E2258916EE376C002DC1F3 /* WDLAppDelegate.m */,
+				A93C87C916F610A9008D8886 /* WDLLocationManager.h */,
+				A93C87CA16F610A9008D8886 /* WDLLocationManager.m */,
 				A9E2259116EE376C002DC1F3 /* WDLViewController.h */,
 				A9E2259216EE376C002DC1F3 /* WDLViewController.m */,
 				A9E2259416EE376C002DC1F3 /* WDLViewController.xib */,
+				A93C87CC16F61556008D8886 /* WDLHeadingView.h */,
+				A93C87CD16F61556008D8886 /* WDLHeadingView.m */,
 			);
 			path = BlimpCam;
 			sourceTree = "<group>";
@@ -285,6 +312,9 @@
 				A9E225BD16EE4C6E002DC1F3 /* AVCamRecorder.m in Sources */,
 				A9E225BE16EE4C6E002DC1F3 /* AVCamUtilities.m in Sources */,
 				A9E225BF16EE4C6E002DC1F3 /* AVCamViewController.m in Sources */,
+				A93C87CB16F610A9008D8886 /* WDLLocationManager.m in Sources */,
+				A93C87CE16F61556008D8886 /* WDLHeadingView.m in Sources */,
+				A93C87D516F61B5E008D8886 /* CGGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +441,7 @@
 				A9E2259B16EE376C002DC1F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

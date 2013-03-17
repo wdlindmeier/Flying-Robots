@@ -7,23 +7,45 @@
 //
 
 #import "WDLViewController.h"
+#import "WDLLocationManager.h"
 
 @interface WDLViewController ()
-
+{
+    NSTimer *_timerUpdate;
+}
 @end
 
 @implementation WDLViewController
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return toInterfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"GPS";
+    self.mapView.userInteractionEnabled = NO;
+    self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
+    _timerUpdate = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                    target:self
+                                                  selector:@selector(updateLocation:)
+                                                  userInfo:nil
+                                                   repeats:YES];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidUnload
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidUnload];
+    [_timerUpdate invalidate];
+    _timerUpdate = nil;
+}
+
+- (void)updateLocation:(NSTimer *)t
+{
+    CLLocationCoordinate2D coords = [WDLLocationManager sharedManager].currentCoord;
+    self.labelCoords.text = [NSString stringWithFormat:@"   %f, %f", coords.latitude, coords.longitude];
 }
 
 @end

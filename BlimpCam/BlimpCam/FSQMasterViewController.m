@@ -111,7 +111,7 @@ enum {
     _foursquare.version = @"20111119";
     _foursquare.locale = [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode];
     _foursquare.sessionDelegate = self;
-    _foursquare.clientSecret = FHClientSecret;
+    //_foursquare.clientSecret = FHClientSecret;
 
     _captureManager = [[AVCamCaptureManager alloc] init];
     
