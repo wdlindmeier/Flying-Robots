@@ -1,0 +1,1777 @@
+venues =     (
+                {
+            beenHere =             {
+                count = 0;
+            };
+            self.response: {
+                venues =     (
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/center-for-performance-research/4bda204c63c5c9b67adf2268";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/arts_entertainment/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d1f2931735;
+                                name = "Performing Arts Venue";
+                                pluralName = "Performing Arts Venues";
+                                primary = 1;
+                                shortName = "Performing Arts";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4bda204c63c5c9b67adf2268;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "361 Manhattan Ave.";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 13;
+                            lat = "40.716684783548594";
+                            lng = "-73.94651285701735";
+                            state = NY;
+                        };
+                        name = "Center For Performance Research";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 242;
+                            tipCount = 1;
+                            usersCount = 136;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/school-settlement-association/4bc77da192b376b090d14f3a";
+                        categories =             (
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4bc77da192b376b090d14f3a;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "120 jackson st";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 34;
+                            lat = "40.7165";
+                            lng = "-73.94652";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "School settlement association";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 34;
+                            tipCount = 0;
+                            usersCount = 9;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/la-casa-dello-cielo/4f4d4767e4b087ae22eb1878";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/parks_outdoors/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d165941735;
+                                name = "Scenic Lookout";
+                                pluralName = "Scenic Lookouts";
+                                primary = 1;
+                                shortName = "Scenic Lookout";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4f4d4767e4b087ae22eb1878;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "374 Manhattan Ave";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = "Jackson St";
+                            distance = 19;
+                            lat = "40.71697677339962";
+                            lng = "-73.94658748002345";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "La Casa dello Cielo";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 48;
+                            tipCount = 1;
+                            usersCount = 12;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/the-blue-stove/4a352ac2f964a5208c9c1fe3";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/food/bakery_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d16a941735;
+                                name = Bakery;
+                                pluralName = Bakeries;
+                                primary = 1;
+                                shortName = Bakery;
+                            }
+                        );
+                        contact =             {
+                            formattedPhone = "(718) 766-7419";
+                            phone = 7187667419;
+                        };
+                        hereNow =             {
+                            count = 1;
+                            groups =                 (
+                                                    {
+                                    count = 1;
+                                    items =                         (
+                                    );
+                                    name = "Other people here";
+                                    type = others;
+                                }
+                            );
+                        };
+                        id = 4a352ac2f964a5208c9c1fe3;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "415 Graham Avenue";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = "btwn Withers and Frost";
+                            distance = 143;
+                            lat = "40.71746884168838";
+                            lng = "-73.94505321979523";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "The Blue Stove";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 3380;
+                            tipCount = 47;
+                            usersCount = 1195;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/fluent-city--williamsburg/4b96bf93f964a52009e234e3";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/education/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d1a0941735;
+                                name = "College Classroom";
+                                pluralName = "College Classrooms";
+                                primary = 1;
+                                shortName = Classroom;
+                            }
+                        );
+                        contact =             {
+                            formattedPhone = "(347) 889-7377";
+                            phone = 3478897377;
+                            twitter = fluentcity;
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4b96bf93f964a52009e234e3;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "143 Skillman Ave.";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = "at Graham Ave.";
+                            distance = 138;
+                            lat = "40.71590502998019";
+                            lng = "-73.94538776820595";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Fluent City - Williamsburg";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 1146;
+                            tipCount = 6;
+                            usersCount = 243;
+                        };
+                        url = "http://www.fluentcity.com";
+                        verified = 1;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/waffle--wolf/4e4db71262e14b77e384d939";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/food/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d143941735;
+                                name = "Breakfast Spot";
+                                pluralName = "Breakfast Spots";
+                                primary = 1;
+                                shortName = "Breakfast / Brunch";
+                            }
+                        );
+                        contact =             {
+                            formattedPhone = "(347) 889-6240";
+                            phone = 3478896240;
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4e4db71262e14b77e384d939;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "413 Graham Avenue";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = Withers;
+                            distance = 149;
+                            lat = "40.7172635142917";
+                            lng = "-73.94485473632812";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Waffle & Wolf";
+                        referralId = "v-1363546105";
+                        specials =             (
+                                            {
+                                description = "Unlocked for the first 10 people between 4:00 PM and 7:00 PM";
+                                finePrint = "Not valid with any other offer.";
+                                icon = flash;
+                                id = 512faff1f13634c6d7f00619;
+                                imageUrls =                     {
+                                    count = 0;
+                                };
+                                likes =                     {
+                                    count = 0;
+                                    groups =                         (
+                                    );
+                                };
+                                message = "Get 20% off your total bill.";
+                                page =                     {
+                                    bio = "";
+                                    contact =                         {
+                                    };
+                                    firstName = "Waffle & Wolf";
+                                    gender = none;
+                                    homeCity = "Brooklyn, NY";
+                                    id = 48662382;
+                                    photo = "https://is1.4sqi.net/userpix_thumbs/P2GYWCNAEPVQ0QVC.png";
+                                    tips =                         {
+                                        count = 0;
+                                    };
+                                    type = chain;
+                                };
+                                provider = foursquare;
+                                redemption = standard;
+                                title = "Flash Special";
+                                type = flash;
+                            }
+                        );
+                        stats =             {
+                            checkinsCount = 1595;
+                            tipCount = 41;
+                            usersCount = 912;
+                        };
+                        verified = 1;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/the-ghost-hole/4c48d92aa3ace21e30e7c93a";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/religious_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d131941735;
+                                name = "Spiritual Center";
+                                pluralName = "Spiritual Centers";
+                                primary = 1;
+                                shortName = Spiritual;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4c48d92aa3ace21e30e7c93a;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "withers street";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = Leonard;
+                            distance = 65;
+                            lat = "40.717095";
+                            lng = "-73.947201";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "The Ghost Hole";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 418;
+                            tipCount = 2;
+                            usersCount = 24;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/awesometron-5000/4b9f0d3af964a520c01137e3";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/arts_entertainment/zoo_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d17b941735;
+                                name = Zoo;
+                                pluralName = Zoos;
+                                primary = 1;
+                                shortName = Zoo;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4b9f0d3af964a520c01137e3;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            country = "United States";
+                            distance = 69;
+                            lat = "40.717433";
+                            lng = "-73.94654";
+                        };
+                        name = "Awesome-tron 5000";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 78;
+                            tipCount = 1;
+                            usersCount = 12;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/ch%C3%A2teau-du-deux-vins/4dc82fb2d22dafda2fe5d755";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/nightlife/wine_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d123941735;
+                                name = "Wine Bar";
+                                pluralName = "Wine Bars";
+                                primary = 1;
+                                shortName = "Wine Bar";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4dc82fb2d22dafda2fe5d755;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "133 Jackson St";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 65;
+                            lat = "40.716602014041854";
+                            lng = "-73.94579532664339";
+                            state = NY;
+                        };
+                        name = "Ch\U00e2teau Du Deux Vins";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 48;
+                            tipCount = 0;
+                            usersCount = 6;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/withers-deli--grocery/4d4db7129aaab60c5c683b29";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/food/deli_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d146941735;
+                                name = "Deli / Bodega";
+                                pluralName = "Delis / Bodegas";
+                                primary = 1;
+                                shortName = "Deli / Bodega";
+                            }
+                        );
+                        contact =             {
+                            formattedPhone = "(718) 389-4125";
+                            phone = 7183894125;
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4d4db7129aaab60c5c683b29;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "380 Manhattan Ave";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = withers;
+                            distance = 55;
+                            lat = "40.717164";
+                            lng = "-73.946978";
+                            postalCode = 11211;
+                            state = "New York";
+                        };
+                        name = "Withers Deli & Grocery";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 601;
+                            tipCount = 4;
+                            usersCount = 47;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/raleighs-brooklyn/50d9ed42e4b019a9eeb87a95";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/shops/bikeshop_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d115951735;
+                                name = "Bike Shop";
+                                pluralName = "Bike Shops";
+                                primary = 1;
+                                shortName = "Bike shop";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 50d9ed42e4b019a9eeb87a95;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 71;
+                            lat = "40.71651453532737";
+                            lng = "-73.94576088511852";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Raleigh's Brooklyn";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+
+                            checkinsCount = 7;
+                            tipCount = 1;
+                            usersCount = 1;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/darienzo-funeral-home/4c774b59941876b0255bdef8";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d130941735;
+                                name = Building;
+                                pluralName = Buildings;
+                                primary = 1;
+                                shortName = Building;
+                            }
+                        );
+                        contact =             {
+                            formattedPhone = "(718) 388-0235";
+                            phone = 7183880235;
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4c774b59941876b0255bdef8;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "104 Skillman Ave";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 115;
+                            lat = "40.71584790825076";
+                            lng = "-73.94702947723863";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "D\U2019Arienzo Funeral Home";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 34;
+                            tipCount = 0;
+                            usersCount = 19;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/model-t-meats/4c38e5902c8020a1eeb98b00";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/shops/food_butcher_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d11d951735;
+                                name = Butcher;
+                                pluralName = Butchers;
+                                primary = 1;
+                                shortName = Butcher;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4c38e5902c8020a1eeb98b00;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "404 Graham Ave";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = "Jackson St";
+                            distance = 135;
+                            lat = "40.716765";
+                            lng = "-73.94491";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Model T Meats";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 118;
+                            tipCount = 0;
+                            usersCount = 40;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/the-skillman/4df4505bd22d8c5470e116b6";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4d954b06a243a5684965b473;
+                                name = "Residential Building (Apartment / Condo)";
+                                pluralName = "Residential Buildings (Apartments / Condos)";
+                                primary = 1;
+                                shortName = "Apartment Building";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4df4505bd22d8c5470e116b6;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            country = "United States";
+                            distance = 101;
+                            lat = "40.716088";
+                            lng = "-73.945791";
+                            state = NY;
+                        };
+                        name = "The Skillman";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 57;
+                            tipCount = 0;
+                            usersCount = 20;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/maizes-casa/4fe4d6a6e4b0e1967e229fc5";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4d954b06a243a5684965b473;
+                                name = "Residential Building (Apartment / Condo)";
+                                pluralName = "Residential Buildings (Apartments / Condos)";
+                                primary = 1;
+                                shortName = "Apartment Building";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4fe4d6a6e4b0e1967e229fc5;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 125;
+                            lat = "40.71793009795353";
+                            lng = "-73.94643823398245";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Maize's Casa";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 18;
+                            tipCount = 0;
+                            usersCount = 2;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/adelaide/4a6642d7f964a5204ec81fe3";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/shops/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d1ed941735;
+                                name = "Spa / Massage";
+                                pluralName = "Spas / Massages";
+                                primary = 1;
+                                shortName = "Spa / Massage";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4a6642d7f964a5204ec81fe3;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "349 Leonard St.";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = "Jackson St.";
+                            distance = 140;
+                            lat = "40.716287071089084";
+                            lng = "-73.94803401260772";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = Adelaide;
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 182;
+                            tipCount = 5;
+                            usersCount = 63;
+                        };
+                        verified = 1;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/jackson--manhattan/4d8b42427139b1f7eb50dbd4";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/travel/resort_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d12f951735;
+                                name = Resort;
+                                pluralName = Resorts;
+                                primary = 1;
+                                shortName = Resort;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4d8b42427139b1f7eb50dbd4;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            country = "United States";
+                            distance = 129;
+                            lat = "40.7165120762458";
+                            lng = "-73.94799957148145";
+                        };
+                        name = "Jackson & Manhattan";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 146;
+                            tipCount = 0;
+                            usersCount = 15;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/cozy-nails--spa/4ed95f5c8231efe38e287e31";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/shops/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d1ed941735;
+                                name = "Spa / Massage";
+                                pluralName = "Spas / Massages";
+                                primary = 1;
+                                shortName = "Spa / Massage";
+                            }
+                        );
+                        contact =             {
+                            formattedPhone = "(718) 349-3085";
+                            phone = 7183493085;
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4ed95f5c8231efe38e287e31;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "417 Graham Ave, Brooklyn, NY 11211";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 163;
+                            lat = "40.71751109316325";
+                            lng = "-73.94481948106431";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Cozy Nails & Spa";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 48;
+                            tipCount = 1;
+                            usersCount = 21;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/hilton-new-york/4fea64a2e4b0b3d2998d51e6";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/travel/hotel_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d1fa931735;
+                                name = Hotel;
+                                pluralName = Hotels;
+                                primary = 1;
+                                shortName = Hotel;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4fea64a2e4b0b3d2998d51e6;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "301 Park Avenue, New York";
+                            cc = US;
+                            city = "New York";
+                            country = "United States";
+                            distance = 2887;
+                            lat = "40.70384600180363";
+                            lng = "-73.91687951224768";
+                            postalCode = 10022;
+                            state = NY;
+                        };
+                        name = "Hilton New York";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 8;
+                            tipCount = 0;
+                            usersCount = 8;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/club-mini/5109f312e4b0b9ac99c340a9";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/nightlife/secretbar_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d1d4941735;
+                                name = Speakeasy;
+                                pluralName = Speakeasies;
+                                primary = 1;
+                                shortName = "Speakeasy / Secret Spot";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 5109f312e4b0b9ac99c340a9;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 145;
+                            lat = "40.717410545717456";
+                            lng = "-73.9449916894653";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Club Mini";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 2;
+                            tipCount = 0;
+                            usersCount = 1;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/350-manhattan-ave/4f2f5d6fe4b0118a87d0fffa";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4d954b06a243a5684965b473;
+                                name = "Residential Building (Apartment / Condo)";
+                                pluralName = "Residential Buildings (Apartments / Condos)";
+                                primary = 1;
+                                shortName = "Apartment Building";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4f2f5d6fe4b0118a87d0fffa;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "350 Manhattan Ave";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            crossStreet = Skillman;
+                            distance = 110;
+                            lat = "40.71594843393637";
+                            lng = "-73.94585846942309";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "350 Manhattan Ave";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 63;
+                            tipCount = 0;
+                            usersCount = 16;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/dr-pasquale-dds/4f7310e2e4b019c941513717";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/medical_dentist_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d178941735;
+                                name = "Dentist's Office";
+                                pluralName = "Dentist's Offices";
+                                primary = 1;
+                                shortName = "Dentist's Office";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4f7310e2e4b019c941513717;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 118;
+                            lat = "40.71785679755121";
+                            lng = "-73.94673098572352";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Dr Pasquale DDS";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 17;
+                            tipCount = 1;
+                            usersCount = 7;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/gasper-hairstylist-for-men/4dba8c4f0cb65435c52e34e6";
+                        categories =             (
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4dba8c4f0cb65435c52e34e6;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "342 Leonard Street";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 155;
+                            lat = "40.716184301940785";
+                            lng = "-73.94816603686832";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Gasper Hairstylist for Men";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 45;
+                            tipCount = 1;
+                            usersCount = 22;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/abzyme-research-foundation/4e987e0fb8f75c533f55d864";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d124941735;
+                                name = Office;
+                                pluralName = Offices;
+                                primary = 1;
+                                shortName = "Corporate / Office";
+                            }
+                        );
+                        contact =             {
+                            twitter = endhiv;
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4e987e0fb8f75c533f55d864;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "364 Leonard Street";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 138;
+                            lat = "40.71661707561991";
+                            lng = "-73.9481430761338";
+                            state = NY;
+                        };
+                        name = "Abzyme Research Foundation";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 12;
+                            tipCount = 0;
+                            usersCount = 2;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/andrews-road-service/4c794c06df08a1cd3d28da5d";
+                        categories =             (
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4c794c06df08a1cd3d28da5d;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "996 Metropolitan Avenue";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 99;
+                            lat = "40.71600006453292";
+                            lng = "-73.94600197566395";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Andrews Road Service";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 7;
+                            tipCount = 0;
+                            usersCount = 5;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/jackson--graham/4d8b42da4757721e25acc769";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/travel/resort_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d12f951735;
+                                name = Resort;
+                                pluralName = Resorts;
+                                primary = 1;
+                                shortName = Resort;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4d8b42da4757721e25acc769;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            country = "United States";
+                            distance = 137;
+                            lat = "40.717249116222845";
+                            lng = "-73.94499168946531";
+                        };
+                        name = "Jackson & Graham";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 17;
+                            tipCount = 0;
+                            usersCount = 8;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/the-skillman-gym/50b294efe4b01c01b53217c6";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/gym_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d176941735;
+                                name = Gym;
+                                pluralName = Gyms;
+                                primary = 1;
+                                shortName = Gym;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 50b294efe4b01c01b53217c6;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 94;
+                            lat = "40.71601";
+                            lng = "-73.946121";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "The Skillman Gym";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 2;
+                            tipCount = 0;
+                            usersCount = 1;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/queens-typewriter/4c896f8d1797236a7e035988";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/shops/antique_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4bf58dd8d48988d116951735;
+                                name = "Antique Shop";
+                                pluralName = "Antique Shops";
+                                primary = 1;
+                                shortName = Antiques;
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4c896f8d1797236a7e035988;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 157;
+                            lat = "40.717454";
+                            lng = "-73.944854";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "Queens Typewriter";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 16;
+                            tipCount = 0;
+                            usersCount = 8;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/394-manhattan-ave-brooklyn-ny/4fcf71b2e4b02b4665b14de5";
+                        categories =             (
+                                            {
+                                icon =                     {
+                                    name = ".png";
+                                    prefix = "https://foursquare.com/img/categories/building/default_";
+                                    sizes =                         (
+                                        32,
+                                        44,
+                                        64,
+                                        88,
+                                        256
+                                    );
+                                };
+                                id = 4d954b06a243a5684965b473;
+                                name = "Residential Building (Apartment / Condo)";
+                                pluralName = "Residential Buildings (Apartments / Condos)";
+                                primary = 1;
+                                shortName = "Apartment Building";
+                            }
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4fcf71b2e4b02b4665b14de5;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 89;
+                            lat = "40.71759600773665";
+                            lng = "-73.94670228459204";
+                            postalCode = 11211;
+                            state = NY;
+                        };
+                        name = "394 Manhattan Ave. Brooklyn, NY";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 9;
+                            tipCount = 0;
+                            usersCount = 6;
+                        };
+                        verified = 0;
+                    },
+                            {
+                        beenHere =             {
+                            count = 0;
+                        };
+                        canonicalUrl = "https://foursquare.com/v/133-jackson/4adfe61bf964a520e57d21e3";
+                        categories =             (
+                        );
+                        contact =             {
+                        };
+                        hereNow =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        id = 4adfe61bf964a520e57d21e3;
+                        likes =             {
+                            count = 0;
+                            groups =                 (
+                            );
+                        };
+                        location =             {
+                            address = "133 jackson";
+                            cc = US;
+                            city = Brooklyn;
+                            country = "United States";
+                            distance = 60;
+                            lat = "40.71686295505082";
+                            lng = "-73.94581254740353";
+                            state = NY;
+                        };
+                        name = "133 jackson";
+                        referralId = "v-1363546105";
+                        specials =             (
+                        );
+                        stats =             {
+                            checkinsCount = 25;
+                            tipCount = 0;
+                            usersCount = 14;
+                        };
+                        verified = 0;
+                    }
+                );
+            }
+        },

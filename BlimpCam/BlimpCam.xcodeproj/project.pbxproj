@@ -13,6 +13,8 @@
 		A93C87D016F61A2C008D8886 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C87CF16F61A2C008D8886 /* MapKit.framework */; };
 		A93C87D216F61A32008D8886 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C87D116F61A32008D8886 /* QuartzCore.framework */; };
 		A93C87D516F61B5E008D8886 /* CGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87D416F61B5E008D8886 /* CGGeometry.m */; };
+		A93C87D816F63EEF008D8886 /* WDLFSQManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87D716F63EEF008D8886 /* WDLFSQManager.m */; };
+		A93C87DB16F647DC008D8886 /* FSQVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87DA16F647DC008D8886 /* FSQVenue.m */; };
 		A9E2257A16EE376C002DC1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257916EE376C002DC1F3 /* UIKit.framework */; };
 		A9E2257C16EE376C002DC1F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257B16EE376C002DC1F3 /* Foundation.framework */; };
 		A9E2257E16EE376C002DC1F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */; };
@@ -52,6 +54,10 @@
 		A93C87D116F61A32008D8886 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A93C87D316F61B5E008D8886 /* CGGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGeometry.h; sourceTree = "<group>"; };
 		A93C87D416F61B5E008D8886 /* CGGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGeometry.m; sourceTree = "<group>"; };
+		A93C87D616F63EEF008D8886 /* WDLFSQManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLFSQManager.h; sourceTree = "<group>"; };
+		A93C87D716F63EEF008D8886 /* WDLFSQManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLFSQManager.m; sourceTree = "<group>"; };
+		A93C87D916F647DC008D8886 /* FSQVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQVenue.h; sourceTree = "<group>"; };
+		A93C87DA16F647DC008D8886 /* FSQVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQVenue.m; sourceTree = "<group>"; };
 		A9E2257616EE376C002DC1F3 /* BlimpCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlimpCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E2257916EE376C002DC1F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9E2257B16EE376C002DC1F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,13 +174,15 @@
 				A9E2258016EE376C002DC1F3 /* Supporting Files */,
 				A9E2258816EE376C002DC1F3 /* WDLAppDelegate.h */,
 				A9E2258916EE376C002DC1F3 /* WDLAppDelegate.m */,
+				A93C87D616F63EEF008D8886 /* WDLFSQManager.h */,
+				A93C87D716F63EEF008D8886 /* WDLFSQManager.m */,
+				A93C87CC16F61556008D8886 /* WDLHeadingView.h */,
+				A93C87CD16F61556008D8886 /* WDLHeadingView.m */,
 				A93C87C916F610A9008D8886 /* WDLLocationManager.h */,
 				A93C87CA16F610A9008D8886 /* WDLLocationManager.m */,
 				A9E2259116EE376C002DC1F3 /* WDLViewController.h */,
 				A9E2259216EE376C002DC1F3 /* WDLViewController.m */,
 				A9E2259416EE376C002DC1F3 /* WDLViewController.xib */,
-				A93C87CC16F61556008D8886 /* WDLHeadingView.h */,
-				A93C87CD16F61556008D8886 /* WDLHeadingView.m */,
 			);
 			path = BlimpCam;
 			sourceTree = "<group>";
@@ -212,6 +220,8 @@
 				A9E225A916EE3CD0002DC1F3 /* FSQJSONObjectViewController.m */,
 				A9E225A516EE3C58002DC1F3 /* FSQMasterViewController.h */,
 				A9E225A616EE3C58002DC1F3 /* FSQMasterViewController.m */,
+				A93C87D916F647DC008D8886 /* FSQVenue.h */,
+				A93C87DA16F647DC008D8886 /* FSQVenue.m */,
 			);
 			name = FourSquare;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 				A93C87CB16F610A9008D8886 /* WDLLocationManager.m in Sources */,
 				A93C87CE16F61556008D8886 /* WDLHeadingView.m in Sources */,
 				A93C87D516F61B5E008D8886 /* CGGeometry.m in Sources */,
+				A93C87D816F63EEF008D8886 /* WDLFSQManager.m in Sources */,
+				A93C87DB16F647DC008D8886 /* FSQVenue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

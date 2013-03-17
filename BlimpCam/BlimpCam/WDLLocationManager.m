@@ -11,6 +11,7 @@
 @implementation WDLLocationManager
 {
     CLLocationManager *_locationManager;
+    CLLocation *_currentLocation;
     CLLocationDirection _trueHeading;
     CLLocationCoordinate2D _currentCoord;
     BOOL _isUpdatingLocation;
@@ -49,12 +50,20 @@
     }
 }
 
+#pragma mark - Calc distance
+
+- (CLLocationDistance)distanceMetersFromLocation:(CLLocationCoordinate2D)coords
+{
+    CLLocation *otherLoc = [[CLLocation alloc] initWithLatitude:coords.latitude longitude:coords.longitude];
+    return [_currentLocation distanceFromLocation:otherLoc];
+}
+
 #pragma mark - CL Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    CLLocation *currentLocation = newLocation;
-    _currentCoord = currentLocation.coordinate;
+    _currentLocation = newLocation;
+    _currentCoord = _currentLocation.coordinate;
     /*
     CLLocationDistance altitude = currentLocation.altitude;
     CLLocationAccuracy horizontalAccuracy = currentLocation.horizontalAccuracy;

@@ -10,6 +10,7 @@
 #import "FSQMasterViewController.h"
 #import "WDLLocationManager.h"
 #import "WDLViewController.h"
+#import "WDLFSQManager.h"
 
 @implementation WDLAppDelegate
 {
@@ -65,10 +66,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    FSQMasterViewController *masterViewController = [navigationController.viewControllers objectAtIndex:0];
-    BZFoursquare *foursquare = masterViewController.foursquare;
-    return [foursquare handleOpenURL:url];
+    return [[WDLFSQManager sharedManager].foursquare handleOpenURL:url];
 }
 
 @end

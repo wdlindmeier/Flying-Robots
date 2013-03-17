@@ -13,9 +13,11 @@
 
 - (void)startLocationUpdates;
 - (void)stopLocationUpdates;
+- (CLLocationDistance)distanceMetersFromLocation:(CLLocationCoordinate2D)coords;
 
 @property (nonatomic, readonly) CLLocationDirection trueHeading;
 @property (nonatomic, readonly) CLLocationCoordinate2D currentCoord;
+@property (nonatomic, readonly) CLLocation *currentLocation;
 
 + (WDLLocationManager *)sharedManager;
 
