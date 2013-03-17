@@ -10,7 +10,11 @@
 #import "WDLHeadingView.h"
 #import <MapKit/MapKit.h>
 
-@interface WDLViewController : UIViewController <MKMapViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface WDLViewController : UIViewController <
+MKMapViewDelegate,
+UIPickerViewDataSource,
+UIPickerViewDelegate,
+UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet WDLHeadingView *headingView;
 @property (nonatomic, strong) IBOutlet UILabel *labelCoords;

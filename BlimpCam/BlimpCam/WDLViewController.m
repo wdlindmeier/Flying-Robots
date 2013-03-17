@@ -17,6 +17,13 @@ enum Targets {
     NumTargets
 };
 
+typedef enum AlertViewContexts {
+    AlertViewContextNone = 0,
+    AlertViewContextEnteredTargetRange
+} AlertViewContext;
+
+static const float ThresholdMetersInRangeOfTarget = 100.0;
+
 @interface WDLViewController ()
 {
     NSTimer *_timerUpdate;
@@ -26,6 +33,8 @@ enum Targets {
     CLLocationCoordinate2D _coordsIppudo;
     CLLocationCoordinate2D _coordsTarget;
     BOOL _isShowingPickerView;
+    BOOL _isInRangeOfTarget;
+    AlertViewContext _alertViewContext;
 }
 @end
 
@@ -41,6 +50,8 @@ enum Targets {
     [super viewDidLoad];
     
     _isShowingPickerView = NO;
+    _isInRangeOfTarget = NO;
+    _alertViewContext = AlertViewContextNone;
     
     self.title = @"GPS";
     
@@ -83,16 +94,73 @@ enum Targets {
     _timerUpdate = nil;
 }
 
+#pragma mark - UIAlertView delegate
+
+static NSString *AlertButtonTitleTakePhoto = @"Take Photo";
+static NSString *AlertButtonTitleCheckIn = @"Check In";
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(_alertViewContext == AlertViewContextEnteredTargetRange && buttonIndex != alertView.cancelButtonIndex){
+        NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+        if([title isEqualToString:AlertButtonTitleTakePhoto]){
+            // TODO: Take a photo
+            NSLog(@"TODO: Take a photo");
+        }else if([title isEqualToString:AlertButtonTitleCheckIn]){
+            // TODO: Check in
+            NSLog(@"TODO: Check in");
+        }
+    }
+    _alertViewContext = AlertViewContextNone;
+}
+
 #pragma mark - Location
+
+- (void)enteredRangeOfTarget
+{
+    _alertViewContext = AlertViewContextEnteredTargetRange;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:@"You have entered the range of your target"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:AlertButtonTitleTakePhoto,
+                                                            AlertButtonTitleCheckIn, nil];
+    [alert show];
+}
+
+- (void)exitedRangeOfTarget
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:@"You have left the range of your target"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 - (void)updateLocation:(NSTimer *)t
 {
-    CLLocationCoordinate2D coords = [WDLLocationManager sharedManager].currentCoord;
-    CLLocationDistance distMeters = [[WDLLocationManager sharedManager] distanceMetersFromLocation:_coordsTarget];
-    
-    self.labelCoords.text = [NSString stringWithFormat:@"   %f, %f, Δ %0.2fm",
-                             coords.latitude, coords.longitude, distMeters];
+    CLLocationAccuracy hAccuracy = [WDLLocationManager sharedManager].currentLocation.horizontalAccuracy;
 
+    // Toss out anything that's inaccurate
+    if(hAccuracy > 0.0 && hAccuracy < 100.0){
+
+        CLLocationCoordinate2D coords = [WDLLocationManager sharedManager].currentCoord;
+        CLLocationDistance distMeters = [[WDLLocationManager sharedManager] distanceMetersFromLocation:_coordsTarget];
+
+        NSString *rangeIndicator = _isInRangeOfTarget ? @"*" : @"";
+        self.labelCoords.text = [NSString stringWithFormat:@"   %f, %f, Δ %0.2fm %@",
+                                 coords.latitude, coords.longitude, distMeters, rangeIndicator];
+        
+        if(!_isInRangeOfTarget && distMeters < ThresholdMetersInRangeOfTarget){
+            _isInRangeOfTarget = YES;
+            [self enteredRangeOfTarget];
+        }else if(_isInRangeOfTarget && distMeters > ThresholdMetersInRangeOfTarget){
+            _isInRangeOfTarget = NO;
+            [self exitedRangeOfTarget];
+        }
+        
+    }
 }
 
 #pragma mark - Foursquare
@@ -199,6 +267,7 @@ enum Targets {
 - (void)selectTarget:(int)targetNum
 {
     _targetSelection = targetNum;
+    _isInRangeOfTarget = NO;
     switch (targetNum) {
         case Target368Manhattan:
             _coordsTarget = _coords368Manhattan;
