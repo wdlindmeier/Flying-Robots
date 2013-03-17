@@ -12,12 +12,12 @@
 #import "FSQVenue.h"
 #import <AVFoundation/AVFoundation.h>
 
-static NSString *FSQVenueIDAwesomeTron = @"4b9f0d3af964a520c01137e3"; // Awesome-tron 5000
+static NSString *FSQVenueIDFoodHogHQ = @"51462719e4b076f4b0a75dc1"; // Food Hog HQ
 static NSString *FSQVenueIDIppudo = @"4a5403b8f964a520f3b21fe3"; // Ippudo
 static NSString *FSQVenueIDPaulieGees = @"4b9709fcf964a520c4f434e3"; // Paulie Gees
 
 enum Targets {
-    TargetAwesomeTron = 0,
+    TargetFoodHogHQ = 0,
     TargetPaulieGees = 1,
     TargetIppudo = 2,
     NumTargets
@@ -34,7 +34,7 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
 {
     NSTimer *_timerUpdate;
     int _targetSelection;
-    CLLocationCoordinate2D _coordsAwesomeTron;
+    CLLocationCoordinate2D _coordsFoodHogHQ;
     CLLocationCoordinate2D _coordsPaulieGees;
     CLLocationCoordinate2D _coordsIppudo;
     CLLocationCoordinate2D _coordsTarget;
@@ -62,7 +62,7 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
     _isInRangeOfTarget = NO;
     _alertViewContext = AlertViewContextNone;
     _venueCheckin = nil;
-    _venueIDsOfInterest = @[FSQVenueIDAwesomeTron, FSQVenueIDIppudo, FSQVenueIDPaulieGees];
+    _venueIDsOfInterest = @[FSQVenueIDFoodHogHQ, FSQVenueIDIppudo, FSQVenueIDPaulieGees];
     
     self.title = @"Food Hog";
     
@@ -75,8 +75,8 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
                                                   userInfo:nil
                                                    repeats:YES];
     
-    _coordsAwesomeTron.latitude = 40.717433;
-    _coordsAwesomeTron.longitude = -73.94654;
+    _coordsFoodHogHQ.latitude = 40.716766;
+    _coordsFoodHogHQ.longitude = -73.946428;
     
     _coordsPaulieGees.latitude = 40.697488;
     _coordsPaulieGees.longitude = -73.979681;
@@ -184,7 +184,13 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 - (void)capturePhoto
 {
     if(_captureManager){
-        [_captureManager captureStillImage];
+        
+        [_captureManager captureStillImage:^(UIImage *camImage) {
+            // Upload that baby to fsq
+            if(_venueCheckin){
+                [self fsqUploadPhoto:camImage toVenue:_venueCheckin];
+            }
+        }];
         
         // Flash the screen white and fade it out to give UI feedback that a still image was taken
         UIView *flashView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -328,6 +334,20 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
     }
 }
 
+- (void)fsqUploadPhoto:(UIImage *)img toVenue:(FSQVenue *)venue
+{
+    WDLFSQManager *fsq = [WDLFSQManager sharedManager];
+    if([fsq isAuthenticated]){
+        [fsq uploadPhoto:img
+                 toVenue:venue
+                 success:^(NSDictionary *response) {
+                     NSLog(@"Photo Upload SUCCESS: %@", response);
+                 } error:^(NSDictionary *errorInfo) {
+                     NSLog(@"ERROR uploading photo: %@", errorInfo);
+                 }];
+    }    
+}
+
 - (void)foursquarePressed:(id)sender
 {
     [self fsqAuthenticate];
@@ -393,8 +413,8 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     NSString *title = nil;
     switch (row) {
-        case TargetAwesomeTron:
-            title = @"Awesome-tron 5000";
+        case TargetFoodHogHQ:
+            title = @"Food Hog HQ";
             break;
         case TargetPaulieGees:
             title = @"Paulie Gees";
@@ -418,8 +438,8 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 {
     _targetSelection = targetNum;
     switch (targetNum) {
-        case TargetAwesomeTron:
-            _coordsTarget = _coordsAwesomeTron;
+        case TargetFoodHogHQ:
+            _coordsTarget = _coordsFoodHogHQ;
             break;
         case TargetPaulieGees:
             _coordsTarget = _coordsPaulieGees;

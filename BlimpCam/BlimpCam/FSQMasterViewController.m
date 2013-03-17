@@ -363,7 +363,7 @@ enum {
 
 - (void)initCameraPhoto
 {
-    [_captureManager captureStillImage];
+    [_captureManager captureStillImage:nil];
     
     // Flash the screen white and fade it out to give UI feedback that a still image was taken
     UIView *flashView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -540,7 +540,8 @@ enum {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
-- (void)addPhoto {
+- (void)addPhoto
+{
     [self prepareForRequest];
     NSURL *photoURL = [[NSBundle mainBundle] URLForResource:@"TokyoBa-Z" withExtension:@"jpg"];
     NSData *photoData = [NSData dataWithContentsOfURL:photoURL];

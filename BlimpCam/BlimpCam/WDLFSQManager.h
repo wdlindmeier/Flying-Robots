@@ -24,6 +24,10 @@ BZFoursquareSessionDelegate>
 - (void)checkinToVenue:(FSQVenue *)venue
                success:(void (^)(NSDictionary *response))successCallback
                  error:(FSQErrorBlock)errorCallback;
+- (void)uploadPhoto:(UIImage *)photo
+            toVenue:(FSQVenue *)venue
+            success:(void (^)(NSDictionary *response))successCallback
+              error:(FSQErrorBlock)errorCallback;
 - (BOOL)isAuthenticated;
 - (void)authenticateWithSuccess:(void (^)(void))successCallback
                           error:(FSQErrorBlock)errorCallback;

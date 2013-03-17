@@ -266,12 +266,12 @@
     [[self recorder] startRecordingWithOrientation:orientation];
 }
 
-- (void) stopRecording
+- (void)stopRecording
 {
     [[self recorder] stopRecording];
 }
 
-- (void) captureStillImage
+- (void)captureStillImage:(void(^)(UIImage *camImage))successBlock
 {
     AVCaptureConnection *stillImageConnection = [AVCamUtilities connectionWithMediaType:AVMediaTypeVideo fromConnections:[[self stillImageOutput] connections]];
     if ([stillImageConnection isVideoOrientationSupported])
@@ -296,8 +296,10 @@
 																 [library writeImageToSavedPhotosAlbum:[image CGImage]
 																						   orientation:(ALAssetOrientation)[image imageOrientation]
 																					   completionBlock:completionBlock];
+                                                                 
+                                                                 if(successBlock) successBlock(image);
+                                                                 
 																 [image release];
-																 
 																 [library release];
 															 }
 															 else

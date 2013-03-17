@@ -68,7 +68,7 @@
 - (BOOL) setupSession;
 - (void) startRecording;
 - (void) stopRecording;
-- (void) captureStillImage;
+- (void)captureStillImage:(void(^)(UIImage *camImage))successBlock;
 - (BOOL) toggleCamera;
 - (NSUInteger) cameraCount;
 - (NSUInteger) micCount;

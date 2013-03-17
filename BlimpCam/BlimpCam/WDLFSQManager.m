@@ -164,6 +164,26 @@
 
 #pragma mark - Specific Requests
 
+- (void)uploadPhoto:(UIImage *)photo
+            toVenue:(FSQVenue *)venue
+            success:(void (^)(NSDictionary *response))successCallback
+              error:(FSQErrorBlock)errorCallback
+{
+    NSLog(@"Uploading photo to venue: %@", venue);
+    WDLFSQManager __weak *weakSelf = self;
+    _successCallback = ^{
+        successCallback(weakSelf.response);
+    };
+
+    [self prepareForRequest];
+    NSData *photoData = UIImageJPEGRepresentation(photo, 0.7);
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:photoData, @"photo.jpg",
+                                venue.fsqID, @"venueId", nil];
+    self.request = [_foursquare requestWithPath:@"photos/add" HTTPMethod:@"POST" parameters:parameters delegate:self];
+    [_request start];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
 - (void)checkinToVenue:(FSQVenue *)venue
                success:(void (^)(NSDictionary *response))successCallback
                  error:(FSQErrorBlock)errorCallback

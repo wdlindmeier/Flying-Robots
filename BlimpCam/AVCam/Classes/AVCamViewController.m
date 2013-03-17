@@ -215,7 +215,7 @@ static void *AVCamFocusModeObserverContext = &AVCamFocusModeObserverContext;
 {
     // Capture a still image
     [[self stillButton] setEnabled:NO];
-    [[self captureManager] captureStillImage];
+    [[self captureManager] captureStillImage:nil];
     
     // Flash the screen white and fade it out to give UI feedback that a still image was taken
     UIView *flashView = [[UIView alloc] initWithFrame:[[self videoPreviewView] frame]];
