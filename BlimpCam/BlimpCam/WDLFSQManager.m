@@ -164,6 +164,23 @@
 
 #pragma mark - Specific Requests
 
+- (void)checkinToVenue:(FSQVenue *)venue
+               success:(void (^)(NSDictionary *response))successCallback
+                 error:(FSQErrorBlock)errorCallback
+{
+    NSLog(@"Checking int venue: %@", venue);
+    WDLFSQManager __weak *weakSelf = self;
+    _successCallback = ^{
+        successCallback(weakSelf.response);
+    };
+    _errorCallback = errorCallback;    
+    [self prepareForRequest];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:venue.fsqID, @"venueId", @"public", @"broadcast", nil];
+    self.request = [_foursquare requestWithPath:@"checkins/add" HTTPMethod:@"POST" parameters:parameters delegate:self];
+    [_request start];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
 - (void)searchForNearbyVenuesWithSuccess:(void (^)(NSArray * results))successCallback
                                    error:(FSQErrorBlock)errorCallback
 {

@@ -152,8 +152,6 @@ enum {
 - (void)dealloc {
     _foursquare.sessionDelegate = nil;
     [self cancelRequest];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-
 }
 
 #pragma mark -

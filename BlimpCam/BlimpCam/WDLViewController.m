@@ -9,10 +9,16 @@
 #import "WDLViewController.h"
 #import "WDLLocationManager.h"
 #import "WDLFSQManager.h"
+#import "FSQVenue.h"
+#import <AVFoundation/AVFoundation.h>
+
+static NSString *FSQVenueIDAwesomeTron = @"4b9f0d3af964a520c01137e3"; // Awesome-tron 5000
+static NSString *FSQVenueIDIppudo = @"4a5403b8f964a520f3b21fe3"; // Ippudo
+static NSString *FSQVenueIDPaulieGees = @"4b9709fcf964a520c4f434e3"; // Paulie Gees
 
 enum Targets {
-    Target368Manhattan = 0,
-    Target116Noble = 1,
+    TargetAwesomeTron = 0,
+    TargetPaulieGees = 1,
     TargetIppudo = 2,
     NumTargets
 };
@@ -28,13 +34,16 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
 {
     NSTimer *_timerUpdate;
     int _targetSelection;
-    CLLocationCoordinate2D _coords116Noble;
-    CLLocationCoordinate2D _coords368Manhattan;
+    CLLocationCoordinate2D _coordsAwesomeTron;
+    CLLocationCoordinate2D _coordsPaulieGees;
     CLLocationCoordinate2D _coordsIppudo;
     CLLocationCoordinate2D _coordsTarget;
     BOOL _isShowingPickerView;
     BOOL _isInRangeOfTarget;
     AlertViewContext _alertViewContext;
+    AVCamCaptureManager *_captureManager;
+    FSQVenue *_venueCheckin;
+    NSArray *_venueIDsOfInterest;
 }
 @end
 
@@ -52,8 +61,10 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
     _isShowingPickerView = NO;
     _isInRangeOfTarget = NO;
     _alertViewContext = AlertViewContextNone;
+    _venueCheckin = nil;
+    _venueIDsOfInterest = @[FSQVenueIDAwesomeTron, FSQVenueIDIppudo, FSQVenueIDPaulieGees];
     
-    self.title = @"GPS";
+    self.title = @"Food Hog";
     
     self.mapView.userInteractionEnabled = NO;
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
@@ -64,11 +75,11 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
                                                   userInfo:nil
                                                    repeats:YES];
     
-    _coords116Noble.latitude = 40.728598;
-    _coords116Noble.longitude = -73.955955;
+    _coordsAwesomeTron.latitude = 40.717433;
+    _coordsAwesomeTron.longitude = -73.94654;
     
-    _coords368Manhattan.latitude = 40.716766;
-    _coords368Manhattan.longitude = -73.946428;
+    _coordsPaulieGees.latitude = 40.697488;
+    _coordsPaulieGees.longitude = -73.979681;
     
     _coordsIppudo.latitude = 40.731049;
     _coordsIppudo.longitude = -73.990263;
@@ -92,6 +103,12 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
     [super viewDidUnload];
     [_timerUpdate invalidate];
     _timerUpdate = nil;
+    [self tearDownCamera];
+}
+
+- (void)dealloc
+{
+    [self tearDownCamera];
 }
 
 #pragma mark - UIAlertView delegate
@@ -104,32 +121,124 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
     if(_alertViewContext == AlertViewContextEnteredTargetRange && buttonIndex != alertView.cancelButtonIndex){
         NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
         if([title isEqualToString:AlertButtonTitleTakePhoto]){
-            // TODO: Take a photo
-            NSLog(@"TODO: Take a photo");
+            [self capturePhoto];
         }else if([title isEqualToString:AlertButtonTitleCheckIn]){
-            // TODO: Check in
-            NSLog(@"TODO: Check in");
+            WDLFSQManager *fsq = [WDLFSQManager sharedManager];
+            if([fsq isAuthenticated] && _venueCheckin){
+                [self fsqCheckinToVenue:_venueCheckin];
+            }else{
+                if(![fsq isAuthenticated]){
+                    [[[UIAlertView alloc] initWithTitle:nil
+                                                message:@"You are not logged into FourSquare"
+                                               delegate:nil
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil] show];
+                }else if(!_venueCheckin){
+                    [[[UIAlertView alloc] initWithTitle:nil
+                                                message:@"Could not find a venue to check into"
+                                               delegate:nil
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil] show];
+                }
+            }
         }
     }
     _alertViewContext = AlertViewContextNone;
+}
+
+#pragma mark - AV
+
+- (void)spinUpCamera
+{
+    if(!_captureManager){
+        
+        NSLog(@"Spinning up camera");
+        
+        _captureManager = [[AVCamCaptureManager alloc] init];
+        
+        [_captureManager setDelegate:self];
+        
+        if ([_captureManager setupSession]) {
+            // Start the session. This is done asychronously since -startRunning doesn't return until the session is running.
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [[_captureManager session] startRunning];
+            });
+            
+        }
+    }
+}
+
+- (void)tearDownCamera
+{
+    if(_captureManager){
+        
+        NSLog(@"Tearing down camera");
+        
+        _captureManager.delegate = nil;
+        [_captureManager stopRecording];
+        [[_captureManager session] stopRunning];
+        _captureManager = nil;
+    }
+}
+
+- (void)capturePhoto
+{
+    if(_captureManager){
+        [_captureManager captureStillImage];
+        
+        // Flash the screen white and fade it out to give UI feedback that a still image was taken
+        UIView *flashView = [[UIView alloc] initWithFrame:self.view.bounds];
+        [flashView setBackgroundColor:[UIColor whiteColor]];
+        [[[self view] window] addSubview:flashView];
+        
+        [UIView animateWithDuration:.4f
+                         animations:^{
+                             [flashView setAlpha:0.f];
+                         }
+                         completion:^(BOOL finished){
+                             [flashView removeFromSuperview];
+                         }
+         ];
+    }else{
+        NSLog(@"ERROR: _captureManager is nil");
+    }
 }
 
 #pragma mark - Location
 
 - (void)enteredRangeOfTarget
 {
-    _alertViewContext = AlertViewContextEnteredTargetRange;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:@"You have entered the range of your target"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:AlertButtonTitleTakePhoto,
-                                                            AlertButtonTitleCheckIn, nil];
-    [alert show];
+    NSLog(@"enteredRangeOfTarget");
+    // Spin up an AV session
+    [self spinUpCamera];
+    [self fsqSearchNearby];
+}
+
+- (void)targetSpotted
+{
+    if(_venueCheckin){
+        _alertViewContext = AlertViewContextEnteredTargetRange;
+        NSString *msg = [NSString stringWithFormat:@"You have entered the range of your target: %@", _venueCheckin.name];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Target Spotted!"
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Dismiss"
+                                              otherButtonTitles:AlertButtonTitleTakePhoto,
+                                                                AlertButtonTitleCheckIn,
+                              nil];
+        [alert show];
+    }
 }
 
 - (void)exitedRangeOfTarget
 {
+    NSLog(@"exitedRangeOfTarget");
+    
+    // Wind down AV session
+    [self tearDownCamera];
+    
+    _venueCheckin = nil;
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:@"You have left the range of your target"
                                                    delegate:nil
@@ -165,22 +274,63 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 
 #pragma mark - Foursquare
 
-- (void)foursquarePressed:(id)sender
+- (void)fsqAuthenticate
 {
     WDLFSQManager *fsq = [WDLFSQManager sharedManager];
-    if([fsq isAuthenticated]){
-        [fsq searchForNearbyVenuesWithSuccess:^(NSArray *results) {
-            NSLog(@"Found nearby venues:\n%@", results);
-        } error:^(NSDictionary *errorInfo) {
-            NSLog(@"ERROR searching for venues: %@", errorInfo);
-        }];
-    }else{
+    if(![fsq isAuthenticated]){
         [fsq authenticateWithSuccess:^{
             NSLog(@"SUCCCESS authenticating");
         } error:^(NSDictionary *errorInfo) {
             NSLog(@"ERROR authenticating: %@", errorInfo);
         }];
+    }else{
+        NSLog(@"User is already authenticated");
     }
+}
+
+- (void)fsqSearchNearby
+{
+    WDLFSQManager *fsq = [WDLFSQManager sharedManager];
+    if([fsq isAuthenticated]){
+        [fsq searchForNearbyVenuesWithSuccess:^(NSArray *results) {
+            _venueCheckin = nil;
+            NSLog(@"Found %i nearby venues", results.count);
+            for(FSQVenue *v in results){
+                // Just a simple loop over the known venues.
+                // We'll pick the first one.
+                for(NSString *venueID in _venueIDsOfInterest){
+                    if([v.fsqID isEqualToString:venueID]){
+                        _venueCheckin = v;
+                        break;
+                    }
+                }
+                if(_venueCheckin) break;
+            }
+            if(_venueCheckin){
+                [self targetSpotted];
+            }
+        } error:^(NSDictionary *errorInfo) {
+            NSLog(@"ERROR searching for venues: %@", errorInfo);
+        }];
+    }
+}
+
+- (void)fsqCheckinToVenue:(FSQVenue *)venue
+{
+    WDLFSQManager *fsq = [WDLFSQManager sharedManager];
+    if([fsq isAuthenticated]){
+        [fsq checkinToVenue:venue
+                    success:^(NSDictionary *response) {
+                        NSLog(@"SUCCESS: %@", response);
+                    } error:^(NSDictionary *errorInfo) {
+                        NSLog(@"ERROR checking in: %@", errorInfo);
+                    }];
+    }
+}
+
+- (void)foursquarePressed:(id)sender
+{
+    [self fsqAuthenticate];
 }
 
 #pragma mark - Picker View
@@ -243,11 +393,11 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     NSString *title = nil;
     switch (row) {
-        case Target368Manhattan:
-            title = @"368 Manhattan";
+        case TargetAwesomeTron:
+            title = @"Awesome-tron 5000";
             break;
-        case Target116Noble:
-            title = @"116 Noble";
+        case TargetPaulieGees:
+            title = @"Paulie Gees";
             break;
         case TargetIppudo:
             title = @"Ippudo";
@@ -267,13 +417,12 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 - (void)selectTarget:(int)targetNum
 {
     _targetSelection = targetNum;
-    _isInRangeOfTarget = NO;
     switch (targetNum) {
-        case Target368Manhattan:
-            _coordsTarget = _coords368Manhattan;
+        case TargetAwesomeTron:
+            _coordsTarget = _coordsAwesomeTron;
             break;
-        case Target116Noble:
-            _coordsTarget = _coords116Noble;
+        case TargetPaulieGees:
+            _coordsTarget = _coordsPaulieGees;
             break;
         case TargetIppudo:
             _coordsTarget = _coordsIppudo;

@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "WDLHeadingView.h"
 #import <MapKit/MapKit.h>
+#import "AVCamCaptureManager.h"
 
 @interface WDLViewController : UIViewController <
 MKMapViewDelegate,
 UIPickerViewDataSource,
 UIPickerViewDelegate,
-UIAlertViewDelegate>
+UIAlertViewDelegate,
+AVCamCaptureManagerDelegate>
 
 @property (nonatomic, strong) IBOutlet WDLHeadingView *headingView;
 @property (nonatomic, strong) IBOutlet UILabel *labelCoords;

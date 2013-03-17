@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BZFoursquare.h"
+#import "FSQVenue.h"
 
 typedef void(^FSQSuccessBlock)(void);
 typedef void(^FSQErrorBlock)(NSDictionary *errorInfo);
@@ -20,6 +21,9 @@ BZFoursquareSessionDelegate>
 
 - (void)searchForNearbyVenuesWithSuccess:(void (^)(NSArray * results))successCallback
                                    error:(FSQErrorBlock)errorCallback;
+- (void)checkinToVenue:(FSQVenue *)venue
+               success:(void (^)(NSDictionary *response))successCallback
+                 error:(FSQErrorBlock)errorCallback;
 - (BOOL)isAuthenticated;
 - (void)authenticateWithSuccess:(void (^)(void))successCallback
                           error:(FSQErrorBlock)errorCallback;
