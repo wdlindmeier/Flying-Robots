@@ -70,12 +70,16 @@
 
 #pragma mark -
 @implementation AVCamCaptureManager
+{
+    dispatch_queue_t _videoQueue;    
+}
 
 @synthesize session;
 @synthesize orientation;
 @synthesize videoInput;
 @synthesize audioInput;
 @synthesize stillImageOutput;
+@synthesize videoOutput;
 @synthesize recorder;
 @synthesize deviceConnectedObserver;
 @synthesize deviceDisconnectedObserver;
@@ -161,98 +165,152 @@
     [stillImageOutput release];
     [recorder release];
     
+    dispatch_release(_videoQueue);
+    
     [super dealloc];
 }
 
-- (BOOL) setupSession
+- (BOOL)setupSession:(NSString *)preset
+           flashMode:(AVCaptureFlashMode)flashMode
+      outputDelegate:(id<AVCaptureVideoDataOutputSampleBufferDelegate>)videoDelegate
 {
     BOOL success = NO;
-    
+
 	// Set torch and flash mode to auto
 	if ([[self backFacingCamera] hasFlash]) {
 		if ([[self backFacingCamera] lockForConfiguration:nil]) {
-			if ([[self backFacingCamera] isFlashModeSupported:AVCaptureFlashModeAuto]) {
-				[[self backFacingCamera] setFlashMode:AVCaptureFlashModeAuto];
+			if ([[self backFacingCamera] isFlashModeSupported:flashMode]) {
+				[[self backFacingCamera] setFlashMode:flashMode];
 			}
 			[[self backFacingCamera] unlockForConfiguration];
 		}
 	}
 	if ([[self backFacingCamera] hasTorch]) {
 		if ([[self backFacingCamera] lockForConfiguration:nil]) {
-			if ([[self backFacingCamera] isTorchModeSupported:AVCaptureTorchModeAuto]) {
-				[[self backFacingCamera] setTorchMode:AVCaptureTorchModeAuto];
+			if ([[self backFacingCamera] isTorchModeSupported:flashMode]) {
+				[[self backFacingCamera] setTorchMode:flashMode];
 			}
 			[[self backFacingCamera] unlockForConfiguration];
 		}
 	}
 	
     // Init the device inputs
-    AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self backFacingCamera] error:nil];
-    AVCaptureDeviceInput *newAudioInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice] error:nil];
+    NSError *inputError = nil;
+    AVCaptureDeviceInput *newVideoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self backFacingCamera] error:&inputError];
+    if(inputError){
+        NSLog(@"Video input error: %@", inputError);
+    }
+    AVCaptureDeviceInput *newAudioInput = nil;// [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice] error:nil];
     
-	
-    // Setup the still image file output
-    AVCaptureStillImageOutput *newStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    AVVideoCodecJPEG, AVVideoCodecKey,
-                                    nil];
-    [newStillImageOutput setOutputSettings:outputSettings];
-    [outputSettings release];
+    // Setup the output
+    AVCaptureOutput *output = nil;
     
+    if(_videoQueue){
+        dispatch_release(_videoQueue);
+    }
+    
+    // Video image output
+    // Add the video frame output
+    if(videoDelegate){
+        
+        // NOTE: We want a serial queue, not concurrent, so the image upload in-order
+        _videoQueue = dispatch_queue_create("com.flyingrobots.Video", NULL);
+        
+        AVCaptureVideoDataOutput *newVideoOutput = [[AVCaptureVideoDataOutput alloc] init];
+        [newVideoOutput setAlwaysDiscardsLateVideoFrames:YES];
+        [newVideoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
+        [newVideoOutput setSampleBufferDelegate:videoDelegate
+                                       //queue:dispatch_get_main_queue()];
+                                       //queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)];
+                                       queue:_videoQueue];
+        output = newVideoOutput;
+        
+    }else{
+        
+        // still image file output
+        AVCaptureStillImageOutput *newStillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+        NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                        AVVideoCodecJPEG, AVVideoCodecKey,
+                                        nil];
+        [newStillImageOutput setOutputSettings:outputSettings];
+        [outputSettings release];
+        
+        output = newStillImageOutput;
+    }
     
     // Create session (use default AVCaptureSessionPresetHigh)
     AVCaptureSession *newCaptureSession = [[AVCaptureSession alloc] init];
-    
+    [newCaptureSession beginConfiguration];
+    [newCaptureSession setSessionPreset:preset];
     
     // Add inputs and output to the capture session
     if ([newCaptureSession canAddInput:newVideoInput]) {
         [newCaptureSession addInput:newVideoInput];
+    }else{
+        NSLog(@"Couldnt add video input: %@", newAudioInput);
     }
     if ([newCaptureSession canAddInput:newAudioInput]) {
         [newCaptureSession addInput:newAudioInput];
+    }else{
+        if(newAudioInput){
+            NSLog(@"Couldnt add audio input: %@", newAudioInput);
+        }
     }
-    if ([newCaptureSession canAddOutput:newStillImageOutput]) {
-        [newCaptureSession addOutput:newStillImageOutput];
+    if ([newCaptureSession canAddOutput:output]) {
+        [newCaptureSession addOutput:output];
+    }else{
+        NSLog(@"Couldn't add output: %@", output);
     }
     
-    [self setStillImageOutput:newStillImageOutput];
+    if([output isKindOfClass:[AVCaptureStillImageOutput class]]){
+        [self setStillImageOutput:(AVCaptureStillImageOutput*)output];
+    }else if([output isKindOfClass:[AVCaptureVideoDataOutput class]]){
+        [self setVideoOutput:(AVCaptureVideoDataOutput*)output];
+    }
+    
+    [newCaptureSession commitConfiguration];
+    
     [self setVideoInput:newVideoInput];
     [self setAudioInput:newAudioInput];
     [self setSession:newCaptureSession];
     
-    [newStillImageOutput release];
+    [output release];
     [newVideoInput release];
     [newAudioInput release];
     [newCaptureSession release];
     
-	// Set up the movie file output
-    NSURL *outputFileURL = [self tempFileURL];
-    AVCamRecorder *newRecorder = [[AVCamRecorder alloc] initWithSession:[self session] outputFileURL:outputFileURL];
-    [newRecorder setDelegate:self];
-	
-	// Send an error to the delegate if video recording is unavailable
-	if (![newRecorder recordsVideo] && [newRecorder recordsAudio]) {
-		NSString *localizedDescription = NSLocalizedString(@"Video recording unavailable", @"Video recording unavailable description");
-		NSString *localizedFailureReason = NSLocalizedString(@"Movies recorded on this device will only contain audio. They will be accessible through iTunes file sharing.", @"Video recording unavailable failure reason");
-		NSDictionary *errorDict = [NSDictionary dictionaryWithObjectsAndKeys:
-								   localizedDescription, NSLocalizedDescriptionKey, 
-								   localizedFailureReason, NSLocalizedFailureReasonErrorKey, 
-								   nil];
-		NSError *noVideoError = [NSError errorWithDomain:@"AVCam" code:0 userInfo:errorDict];
-		if ([[self delegate] respondsToSelector:@selector(captureManager:didFailWithError:)]) {
-			[[self delegate] captureManager:self didFailWithError:noVideoError];
-		}
-	}
-	
-	[self setRecorder:newRecorder];
-    [newRecorder release];
+    if(!videoDelegate){
+    
+        // Set up the movie file output
+        NSURL *outputFileURL = [self tempFileURL];
+        AVCamRecorder *newRecorder = [[AVCamRecorder alloc] initWithSession:[self session] outputFileURL:outputFileURL];
+        [newRecorder setDelegate:self];
+        
+        // Send an error to the delegate if video recording is unavailable
+        if (![newRecorder recordsVideo] && [newRecorder recordsAudio]) {
+            NSString *localizedDescription = NSLocalizedString(@"Video recording unavailable", @"Video recording unavailable description");
+            NSString *localizedFailureReason = NSLocalizedString(@"Movies recorded on this device will only contain audio. They will be accessible through iTunes file sharing.", @"Video recording unavailable failure reason");
+            NSDictionary *errorDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       localizedDescription, NSLocalizedDescriptionKey, 
+                                       localizedFailureReason, NSLocalizedFailureReasonErrorKey, 
+                                       nil];
+            NSError *noVideoError = [NSError errorWithDomain:@"AVCam" code:0 userInfo:errorDict];
+            if ([[self delegate] respondsToSelector:@selector(captureManager:didFailWithError:)]) {
+                [[self delegate] captureManager:self didFailWithError:noVideoError];
+            }
+        }
+        
+        [self setRecorder:newRecorder];
+        [newRecorder release];
+        
+    }
 	
     success = YES;
     
     return success;
 }
 
-- (void) startRecording
+- (void)startRecording
 {
     if ([[UIDevice currentDevice] isMultitaskingSupported]) {
         // Setup background task. This is needed because the captureOutput:didFinishRecordingToOutputFileAtURL: callback is not received until AVCam returns
@@ -269,6 +327,24 @@
 - (void)stopRecording
 {
     [[self recorder] stopRecording];
+}
+
+- (void)captureImageData:(void(^)(NSData *jpegData))successBlock
+{
+    AVCaptureConnection *stillImageConnection = [AVCamUtilities connectionWithMediaType:AVMediaTypeVideo fromConnections:[[self stillImageOutput] connections]];
+    if ([stillImageConnection isVideoOrientationSupported])
+        [stillImageConnection setVideoOrientation:orientation];
+    [[self stillImageOutput] captureStillImageAsynchronouslyFromConnection:stillImageConnection
+                                                         completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+                                                             if(error){
+                                                                 NSLog(@"ERROR capturing image data: %@", error);
+                                                                 return;
+                                                             }
+															 if (imageDataSampleBuffer != NULL) {
+																 NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                                                                 if(successBlock) successBlock(imageData);
+															 }
+                                                         }];
 }
 
 - (void)captureStillImage:(void(^)(UIImage *camImage))successBlock

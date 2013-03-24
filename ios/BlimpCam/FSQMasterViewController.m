@@ -117,7 +117,7 @@ enum {
     
     [_captureManager setDelegate:self];
     
-    if ([_captureManager setupSession]) {
+    if ([_captureManager setupSession:AVCaptureSessionPresetLow flashMode:AVCaptureFlashModeOff outputDelegate:nil]) {
 
         // Create video preview layer and add it to the UI
         /*

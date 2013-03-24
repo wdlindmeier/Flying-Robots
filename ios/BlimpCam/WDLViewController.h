@@ -16,11 +16,17 @@ MKMapViewDelegate,
 UIPickerViewDataSource,
 UIPickerViewDelegate,
 UIAlertViewDelegate,
-AVCamCaptureManagerDelegate>
+AVCamCaptureManagerDelegate,
+AVCaptureVideoDataOutputSampleBufferDelegate,
+UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet WDLHeadingView *headingView;
 @property (nonatomic, strong) IBOutlet UILabel *labelCoords;
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerViewTarget;
+@property (nonatomic, strong) IBOutlet UIButton *buttonCamera;
+@property (nonatomic, strong) IBOutlet UITextField *textFieldServerIP;
+
+- (IBAction)buttonCameraPressed:(id)sender;
 
 @end

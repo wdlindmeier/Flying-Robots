@@ -188,7 +188,7 @@
                success:(void (^)(NSDictionary *response))successCallback
                  error:(FSQErrorBlock)errorCallback
 {
-    NSLog(@"Checking int venue: %@", venue);
+    NSLog(@"Checking into venue: %@", venue);
     WDLFSQManager __weak *weakSelf = self;
     _successCallback = ^{
         successCallback(weakSelf.response);

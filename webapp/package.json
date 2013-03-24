@@ -1,0 +1,8 @@
+{
+  "name": "flying-robot",
+  "subdomain": "wdlindmeier",
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "0.1.0"
+}

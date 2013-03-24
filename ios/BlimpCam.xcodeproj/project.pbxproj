@@ -15,6 +15,7 @@
 		A93C87D516F61B5E008D8886 /* CGGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87D416F61B5E008D8886 /* CGGeometry.m */; };
 		A93C87D816F63EEF008D8886 /* WDLFSQManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87D716F63EEF008D8886 /* WDLFSQManager.m */; };
 		A93C87DB16F647DC008D8886 /* FSQVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87DA16F647DC008D8886 /* FSQVenue.m */; };
+		A9917BA616FE667200BC2F56 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9917BA516FE667200BC2F56 /* CoreImage.framework */; };
 		A9E2257A16EE376C002DC1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257916EE376C002DC1F3 /* UIKit.framework */; };
 		A9E2257C16EE376C002DC1F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257B16EE376C002DC1F3 /* Foundation.framework */; };
 		A9E2257E16EE376C002DC1F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */; };
@@ -58,6 +59,7 @@
 		A93C87D716F63EEF008D8886 /* WDLFSQManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLFSQManager.m; sourceTree = "<group>"; };
 		A93C87D916F647DC008D8886 /* FSQVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQVenue.h; sourceTree = "<group>"; };
 		A93C87DA16F647DC008D8886 /* FSQVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQVenue.m; sourceTree = "<group>"; };
+		A9917BA516FE667200BC2F56 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A9E2257616EE376C002DC1F3 /* BlimpCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlimpCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E2257916EE376C002DC1F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9E2257B16EE376C002DC1F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9917BA616FE667200BC2F56 /* CoreImage.framework in Frameworks */,
 				A93C87D216F61A32008D8886 /* QuartzCore.framework in Frameworks */,
 				A93C87D016F61A2C008D8886 /* MapKit.framework in Frameworks */,
 				A93C87C816F6107C008D8886 /* CoreLocation.framework in Frameworks */,
@@ -146,6 +149,7 @@
 		A9E2257816EE376C002DC1F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9917BA516FE667200BC2F56 /* CoreImage.framework */,
 				A93C87D116F61A32008D8886 /* QuartzCore.framework */,
 				A93C87CF16F61A2C008D8886 /* MapKit.framework */,
 				A93C87C716F6107C008D8886 /* CoreLocation.framework */,

@@ -59,16 +59,20 @@
 @property (nonatomic,retain) AVCaptureDeviceInput *videoInput;
 @property (nonatomic,retain) AVCaptureDeviceInput *audioInput;
 @property (nonatomic,retain) AVCaptureStillImageOutput *stillImageOutput;
+@property (nonatomic,retain) AVCaptureVideoDataOutput *videoOutput;
 @property (nonatomic,retain) AVCamRecorder *recorder;
 @property (nonatomic,assign) id deviceConnectedObserver;
 @property (nonatomic,assign) id deviceDisconnectedObserver;
 @property (nonatomic,assign) UIBackgroundTaskIdentifier backgroundRecordingID;
 @property (nonatomic,assign) id <AVCamCaptureManagerDelegate> delegate;
 
-- (BOOL) setupSession;
+- (BOOL)setupSession:(NSString *)preset
+           flashMode:(AVCaptureFlashMode)flashMode
+      outputDelegate:(id<AVCaptureVideoDataOutputSampleBufferDelegate>)delegate;
 - (void) startRecording;
 - (void) stopRecording;
 - (void)captureStillImage:(void(^)(UIImage *camImage))successBlock;
+- (void)captureImageData:(void(^)(NSData *jpegData))successBlock;
 - (BOOL) toggleCamera;
 - (NSUInteger) cameraCount;
 - (NSUInteger) micCount;

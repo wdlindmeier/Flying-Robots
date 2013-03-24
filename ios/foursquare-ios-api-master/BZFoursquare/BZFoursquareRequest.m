@@ -130,6 +130,7 @@ static NSString * _BZGetMIMEBoundary() {
         NSAssert2(NO, @"*** %s: HTTP %@ method not supported", __PRETTY_FUNCTION__, HTTPMethod_);
         request = nil;
     }
+    NSLog(@"starting connection");
     self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
     NSAssert1(connection_ != nil, @"*** %s: connection is nil", __PRETTY_FUNCTION__);
 }
@@ -146,6 +147,7 @@ static NSString * _BZGetMIMEBoundary() {
 #pragma mark NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSLog(@"connection didReceiveResponse %@", response);
     self.responseData = [NSMutableData data];
     if ([delegate_ respondsToSelector:@selector(requestDidStartLoading:)]) {
         [delegate_ requestDidStartLoading:self];

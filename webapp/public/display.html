@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <!--meta name = "viewport" content = "width = 320, initial-scale = 1.0, user-scalable = no"-->
+        <style>
+			#cam_image{
+				min-width:384px;
+				min-height:288px;
+			}
+			#target_name{
+				color:red;
+			}
+        </style>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            
+            var hostIPAddress = window.location.host; //'172.26.36.140';
+            var socket = io.connect('http://'+hostIPAddress);
+			socket.on('received_image',function (data) {
+			    // console.log("received image");
+				// console.log(data);
+				document.getElementById('cam_image').src = data.img_src;
+				document.getElementById('lat').innerHTML = Math.round(data.lat * 10000) / 10000;
+				document.getElementById('lng').innerHTML = Math.round(data.lng * 10000) / 10000;
+				document.getElementById('dist').innerHTML = Math.round(data.dist * 100) / 100;
+				document.getElementById('in_range').innerHTML = data.in_range;
+				document.getElementById('target_name').innerHTML = data.target_name;
+				if(data.checked_in * 1){
+					console.log(data);
+					document.getElementById('last_checkin').innerHTML = (new Date()).toString();
+				}
+			});
+			
+			function requestCheckin()
+			{
+				socket.emit('request_checkin', null);
+			}
+        </script>
+    </head>
+    <body>
+		<h1>Food Hog Vision</h1>
+		<img id="cam_image" src="/images/image0.jpg" />
+		<h2>Current Target: <strong id="target_name">n/a</strong></h2>
+		<p>
+			<button id="checkin_button" onclick="requestCheckin();">Request Checkin</button><br/>
+			Last checkin: <span id="last_checkin">none</span>
+			<hr/>
+			Target in Range? <span id="in_range"></span><br/>
+			Dist to Target: <span id="dist"></span> meters<br/>
+			Lat: <span id="lat"></span><br/>
+			Lng: <span id="lng"></span><br/>
+		</p>
+	</body>
+</html>
