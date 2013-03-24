@@ -614,11 +614,11 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
                             NSLog(@"We have a checkin photo. Uploading now.");
                             [self fsqUploadPhoto:self.checkinPhoto
                                          toVenue:venue];
-                            self.checkinPhoto = nil;
+                            [MainViewController setCheckinPhoto:nil];
                         }
                     } error:^(NSDictionary *errorInfo) {
                         NSLog(@"ERROR checking in: %@", errorInfo);
-                        self.checkinPhoto = nil;
+                        [MainViewController setCheckinPhoto:nil] ;
                         self.didCheckIn = NO;
                         self.isCheckingIn = NO;
                     }];
