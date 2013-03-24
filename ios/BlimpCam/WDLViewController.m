@@ -14,6 +14,18 @@
 #import <ImageIO/ImageIO.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
+@interface AddressAnnotation : NSObject<MKAnnotation>
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
+@end
+@implementation AddressAnnotation
+-(id)initWithCoordinate:(CLLocationCoordinate2D)c{
+	self.coordinate=c;
+	return self;
+}
+@end
+
 static WDLViewController *MainViewController = nil;
 
 static NSString *FSQVenueIDFoodHogHQ = @"51462719e4b076f4b0a75dc1"; // Food Hog HQ
@@ -40,12 +52,14 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
     AVCamCaptureManager *_captureManager;
     NSString *_serverAddress;
     int _frameNum;
+    AddressAnnotation *_targetAnnotation;
 }
 
 @property (atomic, assign) BOOL isRecording;
 @property (atomic, assign) BOOL isCheckingIn;
 @property (atomic, assign) BOOL didCheckIn;
 @property (atomic, assign) BOOL isInRangeOfTarget;
+@property (atomic, assign) BOOL isProcessingImage;
 @property (atomic, strong) NSDictionary *uploadParams;
 @property (atomic, strong) UIImage *checkinPhoto;
 
@@ -77,7 +91,12 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
     
     self.title = @"Food Hog";
     
-    self.mapView.userInteractionEnabled = NO;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    //self.mapView.userInteractionEnabled = NO;
+    self.mapView.scrollEnabled = NO;
+    self.mapView.zoomEnabled = YES;
+    self.headingView.userInteractionEnabled = NO;
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     
     _timerUpdate = [NSTimer scheduledTimerWithTimeInterval:0.5
@@ -115,21 +134,35 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
     hqLL.longitude = -73.993692;
     venueITP.coord = hqLL;
     
-    _targetVenue = venueHQ;
     _targets = @[venueHQ, venuePaulieGees, venueIppudo, venueITP];
-    
-    //[self selectTarget:_venueCheckin];
+    [self setTarget:venueHQ];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Target"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(pickTarget:)];
+    [self setFoursquareButton];
+}
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"FSQ"
+- (void)setFoursquareButton
+{
+    NSString *buttonTitle = [[WDLFSQManager sharedManager] isAuthenticated] ? @"FS Logout" : @"FS Login";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(foursquarePressed:)];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    CGRect frameMap = self.mapView.frame;
+    
+    // Center the compass
+    self.headingView.center = CGPointMake(frameMap.origin.x +
+                                          frameMap.size.width * 0.5,
+                                          frameMap.origin.y +
+                                          frameMap.size.height * 0.5);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -150,6 +183,19 @@ static const float ThresholdMetersInRangeOfTarget = 100.0;
 - (void)dealloc
 {
     [self tearDownCamera];
+}
+
+#pragma mark - Accessors
+
+- (void)setTarget:(FSQVenue *)venue
+{
+    _targetVenue = venue;
+    if(_targetAnnotation){
+        [self.mapView removeAnnotation:_targetAnnotation];
+    }
+    _targetAnnotation = [[AddressAnnotation alloc] initWithCoordinate:venue.coord];
+    _targetAnnotation.title = venue.name;
+    [self.mapView addAnnotation:_targetAnnotation];
 }
 
 #pragma mark - IBOutlets
@@ -266,35 +312,45 @@ UIImageOrientation ImageOrientationFromCurrentDeviceOrientation()
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
-    //NSLog(@"Captured output");
-    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    if(!self.isProcessingImage){
+        
+        _frameNum = (_frameNum + 1) % 100;
 
-    int height = CVPixelBufferGetHeight(pixelBuffer);
-    int width = CVPixelBufferGetWidth(pixelBuffer);
-    size_t bytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer);
-    // Get the number of bytes per row for the pixel buffer
-	UInt8 * frameData = CVPixelBufferGetBaseAddress(pixelBuffer);
-    
-    // Process pixel buffer bytes here
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef newContext = CGBitmapContextCreate(frameData,
-                                                    width, height, 8,
-                                                    bytesPerRow,
-                                                    colorSpace,
-                                                    kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-    CGImageRef frame = CGBitmapContextCreateImage(newContext);
+        self.isProcessingImage = YES;
+        
+        CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+        CVPixelBufferLockBaseAddress(pixelBuffer, 0);
 
-    UIImageOrientation imgOrient = ImageOrientationFromCurrentDeviceOrientation();
-    NSData *jpegData = JPEGDataWithCGImage(frame, imgOrient, 0.5f);
+        int height = CVPixelBufferGetHeight(pixelBuffer);
+        int width = CVPixelBufferGetWidth(pixelBuffer);
+        size_t bytesPerRow = CVPixelBufferGetBytesPerRow(pixelBuffer);
+        UInt8 * frameData = CVPixelBufferGetBaseAddress(pixelBuffer);
+        
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGContextRef newContext = CGBitmapContextCreate(frameData,
+                                                        width, height, 8,
+                                                        bytesPerRow,
+                                                        colorSpace,
+                                                        kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+        CGImageRef frame = CGBitmapContextCreateImage(newContext);
 
-    _frameNum = (_frameNum + 1) % 100;
-    [self uploadImageData:jpegData frameNum:_frameNum];
+        UIImageOrientation imgOrient = ImageOrientationFromCurrentDeviceOrientation();
+        NSData *jpegData = JPEGDataWithCGImage(frame, imgOrient, 0.5f);
 
-    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
-    CGContextRelease(newContext);
-    CGColorSpaceRelease(colorSpace);
-    CGImageRelease(frame);
+        [self uploadImageData:jpegData frameNum:_frameNum];
+
+        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+        CGContextRelease(newContext);
+        CGColorSpaceRelease(colorSpace);
+        CGImageRelease(frame);
+        
+        self.isProcessingImage = NO;
+
+    }else{
+        // Ignore images that come through when we're uploading
+        // because we don't want a backlog.
+        // NSLog(@"skipping frame");
+    }
 }
 
 static NSString const *UploadBoundary = @"FlYiNgRoBoTsPyOnFoOd";
@@ -422,6 +478,7 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
         
         [_captureManager setDelegate:self];
         
+        // Maybe we can check the network status to determine the size
         if ([_captureManager setupSession:AVCaptureSessionPresetLow
                                 flashMode:AVCaptureFlashModeOff
                            outputDelegate:self]) {
@@ -577,8 +634,10 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
     if(![fsq isAuthenticated]){
         [fsq authenticateWithSuccess:^{
             NSLog(@"SUCCCESS authenticating");
+            [self setFoursquareButton];
         } error:^(NSDictionary *errorInfo) {
             NSLog(@"ERROR authenticating: %@", errorInfo);
+            [self setFoursquareButton];
         }];
     }else{
         NSLog(@"User is already authenticated");
@@ -641,8 +700,13 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 
 - (void)foursquarePressed:(id)sender
 {
-    //[self fsqAuthenticate];
-    [self fsqCheckinToVenue:_targetVenue];
+    WDLFSQManager *fsman = [WDLFSQManager sharedManager];
+    if([fsman isAuthenticated]){
+        [fsman logout];
+        [self setFoursquareButton];
+    }else{
+        [self fsqAuthenticate];
+    }
 }
 
 #pragma mark - Picker View
@@ -710,7 +774,7 @@ static NSString *AlertButtonTitleCheckIn = @"Check In";
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component
 {
-    _targetVenue = _targets[row];
+    [self setTarget:_targets[row]];
     [self setPickerViewIsVisible:NO];
 }
 

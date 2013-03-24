@@ -166,6 +166,7 @@
     [recorder release];
     
     dispatch_release(_videoQueue);
+    _videoQueue = NULL;
     
     [super dealloc];
 }
@@ -207,6 +208,7 @@
     
     if(_videoQueue){
         dispatch_release(_videoQueue);
+        _videoQueue = NULL;
     }
     
     // Video image output
@@ -221,8 +223,8 @@
         [newVideoOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
         [newVideoOutput setSampleBufferDelegate:videoDelegate
                                        //queue:dispatch_get_main_queue()];
-                                       //queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)];
-                                       queue:_videoQueue];
+                                       queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)];
+                                       //queue:_videoQueue];
         output = newVideoOutput;
         
     }else{

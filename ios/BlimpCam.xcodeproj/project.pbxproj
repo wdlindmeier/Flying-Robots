@@ -16,6 +16,8 @@
 		A93C87D816F63EEF008D8886 /* WDLFSQManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87D716F63EEF008D8886 /* WDLFSQManager.m */; };
 		A93C87DB16F647DC008D8886 /* FSQVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = A93C87DA16F647DC008D8886 /* FSQVenue.m */; };
 		A9917BA616FE667200BC2F56 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9917BA516FE667200BC2F56 /* CoreImage.framework */; };
+		A9917BA916FF996900BC2F56 /* compass_rose.png in Resources */ = {isa = PBXBuildFile; fileRef = A9917BA716FF996900BC2F56 /* compass_rose.png */; };
+		A9917BAA16FF996900BC2F56 /* compass_rose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9917BA816FF996900BC2F56 /* compass_rose@2x.png */; };
 		A9E2257A16EE376C002DC1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257916EE376C002DC1F3 /* UIKit.framework */; };
 		A9E2257C16EE376C002DC1F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257B16EE376C002DC1F3 /* Foundation.framework */; };
 		A9E2257E16EE376C002DC1F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2257D16EE376C002DC1F3 /* CoreGraphics.framework */; };
@@ -60,6 +62,8 @@
 		A93C87D916F647DC008D8886 /* FSQVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQVenue.h; sourceTree = "<group>"; };
 		A93C87DA16F647DC008D8886 /* FSQVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQVenue.m; sourceTree = "<group>"; };
 		A9917BA516FE667200BC2F56 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		A9917BA716FF996900BC2F56 /* compass_rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_rose.png; sourceTree = SOURCE_ROOT; };
+		A9917BA816FF996900BC2F56 /* compass_rose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "compass_rose@2x.png"; sourceTree = SOURCE_ROOT; };
 		A9E2257616EE376C002DC1F3 /* BlimpCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlimpCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E2257916EE376C002DC1F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9E2257B16EE376C002DC1F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +131,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9917BAB16FF997200BC2F56 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A9917BA716FF996900BC2F56 /* compass_rose.png */,
+				A9917BA816FF996900BC2F56 /* compass_rose@2x.png */,
+				A9E225AF16EE4ABF002DC1F3 /* Icon.png */,
+				A9E225B016EE4ABF002DC1F3 /* Icon@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		A9E2256D16EE376C002DC1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -169,12 +184,11 @@
 		A9E2257F16EE376C002DC1F3 /* BlimpCam */ = {
 			isa = PBXGroup;
 			children = (
+				A9917BAB16FF997200BC2F56 /* Images */,
 				A93C87D316F61B5E008D8886 /* CGGeometry.h */,
 				A93C87D416F61B5E008D8886 /* CGGeometry.m */,
 				A9E225AB16EE3CD4002DC1F3 /* FourSquare */,
 				A9E225C816EE511F002DC1F3 /* FSQAppCredentials.h */,
-				A9E225AF16EE4ABF002DC1F3 /* Icon.png */,
-				A9E225B016EE4ABF002DC1F3 /* Icon@2x.png */,
 				A9E2258016EE376C002DC1F3 /* Supporting Files */,
 				A9E2258816EE376C002DC1F3 /* WDLAppDelegate.h */,
 				A9E2258916EE376C002DC1F3 /* WDLAppDelegate.m */,
@@ -305,6 +319,8 @@
 				A9E2259616EE376C002DC1F3 /* WDLViewController.xib in Resources */,
 				A9E225B116EE4AC1002DC1F3 /* Icon.png in Resources */,
 				A9E225B216EE4AC1002DC1F3 /* Icon@2x.png in Resources */,
+				A9917BA916FF996900BC2F56 /* compass_rose.png in Resources */,
+				A9917BAA16FF996900BC2F56 /* compass_rose@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

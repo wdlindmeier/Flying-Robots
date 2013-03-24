@@ -14,7 +14,7 @@
 @implementation WDLHeadingView
 {
     CADisplayLink *_displayLink;
-    CAShapeLayer *_shapeLayer;
+    UIImageView *_imgViewRose;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -37,35 +37,19 @@
 
 - (void)initWDLHeadingView
 {
-    _shapeLayer = [[CAShapeLayer alloc] init];
-    _shapeLayer.fillColor = NULL;
-    _shapeLayer.strokeColor = [UIColor blackColor].CGColor;
-    _shapeLayer.lineWidth = 10.0f;
-    [self.layer addSublayer:_shapeLayer];
+    UIImage *imgRose = [UIImage imageNamed:@"compass_rose"];
+    _imgViewRose = [[UIImageView alloc] initWithImage:imgRose];
+    _imgViewRose.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
+    [self addSubview:_imgViewRose];
     [self startAnimation];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    // Add the arc shape
-    _shapeLayer.frame = self.bounds;
-    _shapeLayer.anchorPoint = CGPointMake(0.5, 0.5);
-    double startAngle = 265.0;
-    double endAngle = 275.0;
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGSize mySize = self.frame.size;
-    CGPathAddArc(path,
-                 NULL,
-                 mySize.width * 0.5,
-                 mySize.height * 0.5,
-                 mySize.width * 0.5,
-                 DegreesToRadians(startAngle),
-                 DegreesToRadians(endAngle),
-                 YES);
-    _shapeLayer.path = path;
-    CGPathRelease(path);
+    CGSize sizeView = self.frame.size;
+    _imgViewRose.center = CGPointMake(sizeView.width * 0.5, sizeView.height * 0.5);
 }
 
 - (void)removeFromSuperview

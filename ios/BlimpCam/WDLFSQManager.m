@@ -12,6 +12,8 @@
 #import "WDLLocationManager.h"
 #import "FSQVenue.h"
 
+static NSString * FSQAccessTokenKey = @"FSQAccessToken";
+
 @interface WDLFSQManager()
 
 @property(nonatomic,strong) BZFoursquareRequest *request;
@@ -36,6 +38,10 @@
         _foursquare.version = @"20111119";
         _foursquare.locale = [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode];
         _foursquare.sessionDelegate = self;
+        NSString *storedAccessToken = [[NSUserDefaults standardUserDefaults] stringForKey:FSQAccessTokenKey];
+        if(storedAccessToken){
+            _foursquare.accessToken = storedAccessToken;
+        }
     }
     return self;
 }
@@ -84,6 +90,10 @@
 - (void)foursquareDidAuthorize:(BZFoursquare *)foursquare
 {
     NSLog(@"foursquareDidAuthorize");
+    // Store the user credentials
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:foursquare.accessToken forKey:FSQAccessTokenKey];
+    [defaults synchronize];
     _successCallback();
 }
 
@@ -109,38 +119,6 @@
     self.notifications = nil;
     self.response = nil;
 }
-
-/*
-- (void)searchVenues {
-    [self prepareForRequest];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@"40.7,-74", @"ll", nil];
-    self.request = [_foursquare requestWithPath:@"venues/search" HTTPMethod:@"GET" parameters:parameters delegate:self];
-    [_request start];
-    [self updateView];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-}
-
-
-- (void)checkin {
-    [self prepareForRequest];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@"4d341a00306160fcf0fc6a88", @"venueId", @"public", @"broadcast", nil];
-    self.request = [_foursquare requestWithPath:@"checkins/add" HTTPMethod:@"POST" parameters:parameters delegate:self];
-    [_request start];
-    [self updateView];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-}
-
-- (void)addPhoto {
-    [self prepareForRequest];
-    NSURL *photoURL = [[NSBundle mainBundle] URLForResource:@"TokyoBa-Z" withExtension:@"jpg"];
-    NSData *photoData = [NSData dataWithContentsOfURL:photoURL];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:photoData, @"photo.jpg", @"4d341a00306160fcf0fc6a88", @"venueId", nil];
-    self.request = [_foursquare requestWithPath:@"photos/add" HTTPMethod:@"POST" parameters:parameters delegate:self];
-    [_request start];
-    [self updateView];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-}
-*/
 
 #pragma mark - Authentication
 
